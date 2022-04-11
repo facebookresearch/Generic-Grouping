@@ -254,7 +254,18 @@ def parse_args():
         help="job launcher",
     )
     parser.add_argument("--local_rank", type=int, default=0)
-    parser.add_argument("--test-ann-file", type=str, default=None)
+    parser.add_argument(
+        "--test-ann-file",
+        type=str,
+        default=None,
+        help="override annotation file directory",
+    )
+    parser.add_argument(
+        "--use-gt-masks",
+        type=int,
+        default=1,
+        help="if existing annotations are given and require computing IoU of pseudo-GT and GT",
+    )
 
     args = parser.parse_args()
     if "LOCAL_RANK" not in os.environ:
@@ -409,7 +420,12 @@ def main():
     if not distributed:
         model = MMDataParallel(model, device_ids=[0])
         outputs = single_gpu_test(
-            model, data_loader, args.show, args.show_dir, pa_func=pa_func
+            model,
+            data_loader,
+            args.show,
+            args.show_dir,
+            pa_func=pa_func,
+            use_gt_masks=args.use_gt_masks,
         )
     else:
         model = MMDistributedDataParallel(
@@ -418,7 +434,12 @@ def main():
             broadcast_buffers=False,
         )
         outputs = multi_gpu_test(
-            model, data_loader, args.tmpdir, args.gpu_collect, pa_func=pa_func
+            model,
+            data_loader,
+            args.tmpdir,
+            args.gpu_collect,
+            pa_func=pa_func,
+            use_gt_masks=args.use_gt_masks,
         )
 
     rank, _ = get_dist_info()
