@@ -63,8 +63,8 @@ train_pipeline = [
 test_pipeline = [
     dict(type="LoadImageFromFile"),
     dict(type="Normalize", **img_norm_cfg),
-    # imagenet scale, comment if want original resolution, such as COCO
-    dict(type="Resize", img_scale=(640, 400), keep_ratio=True),
+    # uncomment if want ImageNet scale
+    # dict(type="Resize", img_scale=(640, 400), keep_ratio=True),
     dict(type="DefaultFormatBundle"),
     dict(
         type="Collect",
@@ -85,10 +85,10 @@ data = dict(
     workers_per_gpu=2,
     test=dict(
         is_class_agnostic=True,
-        train_class="all",
-        eval_class="all",
-        ann_file="meta data JSON",
-        img_prefix="image path",
+        train_class="voc",
+        eval_class="voc",
+        ann_file=data_root + "annotations/instances_train2017.json",
+        img_prefix=data_root + "train2017/",
         type=dataset_type,
         pipeline=test_pipeline,
     ),
@@ -128,5 +128,5 @@ pa_to_masks = dict(
     filter_by_edge_thresh=0.9,
     min_component_size=0,
     # Set to None if don't want to use OLN ranker
-    oln_ranker_path="path to your OLN ranker",
+    oln_ranker_path=None,
 )
