@@ -1,3 +1,10 @@
+# Copyright (c) Meta Platforms, Inc. and affiliates.
+# All rights reserved.
+
+# This source code is licensed under the license found in the
+# LICENSE file in the root directory of this source tree
+
+
 from .builder import DATASETS, PIPELINES, build_dataloader, build_dataset
 from .coco import CocoDataset
 from .coco_split import CocoSplitDataset

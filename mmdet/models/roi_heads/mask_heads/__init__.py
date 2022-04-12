@@ -1,3 +1,10 @@
+# Copyright (c) Meta Platforms, Inc. and affiliates.
+# All rights reserved.
+
+# This source code is licensed under the license found in the
+# LICENSE file in the root directory of this source tree
+
+
 from .coarse_mask_head import CoarseMaskHead
 from .fcn_mask_head import FCNMaskHead
 from .fused_semantic_head import FusedSemanticHead

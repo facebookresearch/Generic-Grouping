@@ -1,3 +1,10 @@
+# Copyright (c) Meta Platforms, Inc. and affiliates.
+# All rights reserved.
+
+# This source code is licensed under the license found in the
+# LICENSE file in the root directory of this source tree
+
+
 from .base_bbox_coder import BaseBBoxCoder
 from .bucketing_bbox_coder import BucketingBBoxCoder
 from .delta_xywh_bbox_coder import DeltaXYWHBBoxCoder

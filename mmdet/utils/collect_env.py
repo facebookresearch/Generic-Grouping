@@ -1,3 +1,10 @@
+# Copyright (c) Meta Platforms, Inc. and affiliates.
+# All rights reserved.
+
+# This source code is licensed under the license found in the
+# LICENSE file in the root directory of this source tree
+
+
 import mmdet
 from mmcv.utils import collect_env as collect_base_env
 from mmcv.utils import get_git_hash

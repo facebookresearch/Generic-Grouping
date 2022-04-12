@@ -1,3 +1,10 @@
+# Copyright (c) Meta Platforms, Inc. and affiliates.
+# All rights reserved.
+
+# This source code is licensed under the license found in the
+# LICENSE file in the root directory of this source tree
+
+
 # (c) Facebook, Inc. and its affiliates. Confidential and proprietary.
 
 _base_ = [
@@ -62,13 +69,17 @@ train_pipeline = [
 ]
 test_pipeline = [
     dict(type="LoadImageFromFile"),
+    # comment below to use ImageNet
+    dict(type="LoadAnnotations", with_bbox=True, with_mask=True),
     dict(type="Normalize", **img_norm_cfg),
     # uncomment if want ImageNet scale
     # dict(type="Resize", img_scale=(640, 400), keep_ratio=True),
     dict(type="DefaultFormatBundle"),
     dict(
         type="Collect",
-        keys=["img"],
+        keys=["img", "gt_bboxes", "gt_labels", "gt_masks"],
+        # comment above and uncomment below for ImageNet (no GT anns)
+        # keys=["img"],
         meta_keys=[
             "filename",
             "ori_filename",

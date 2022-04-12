@@ -1,3 +1,10 @@
+# Copyright (c) Meta Platforms, Inc. and affiliates.
+# All rights reserved.
+
+# This source code is licensed under the license found in the
+# LICENSE file in the root directory of this source tree
+
+
 from .accuracy import Accuracy, accuracy
 from .ae_loss import AssociativeEmbeddingLoss
 from .balanced_l1_loss import BalancedL1Loss, balanced_l1_loss

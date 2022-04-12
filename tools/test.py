@@ -1,3 +1,10 @@
+# Copyright (c) Meta Platforms, Inc. and affiliates.
+# All rights reserved.
+
+# This source code is licensed under the license found in the
+# LICENSE file in the root directory of this source tree
+
+
 import argparse
 import os
 import warnings
@@ -195,7 +202,7 @@ def main():
         model = fuse_conv_bn(model)
     # old versions did not save class info in checkpoints, this walkaround is
     # for backward compatibility
-    if "CLASSES" in checkpoint["meta"]:
+    if "meta" in checkpoint and "CLASSES" in checkpoint["meta"]:
         model.CLASSES = checkpoint["meta"]["CLASSES"]
     else:
         model.CLASSES = dataset.CLASSES
