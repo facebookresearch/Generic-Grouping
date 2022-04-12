@@ -1,3 +1,10 @@
+# Copyright (c) Meta Platforms, Inc. and affiliates.
+# All rights reserved.
+
+# This source code is licensed under the license found in the
+# LICENSE file in the root directory of this source tree
+
+
 import argparse
 import json
 import os
@@ -85,7 +92,10 @@ def single_gpu_test(
     prog_bar = mmcv.ProgressBar(len(dataset))
     for _, data in enumerate(data_loader):
         with torch.no_grad():
-            _, pa_preds, gt_masks = model(return_loss=False, **data)
+            if use_gt_masks:
+                _, pa_preds, gt_masks = model(return_loss=False, **data)
+            else:
+                _, pa_preds, gt_masks = model(return_loss=False, gt_masks=None, **data)
         if use_gt_masks:
             gt_masks = [inst_mask.to_ndarray() for inst_mask in gt_masks]
         for i, pa_pred in enumerate(pa_preds):
@@ -130,7 +140,10 @@ def multi_gpu_test(
     time.sleep(2)  # This line can prevent deadlock problem in some cases.
     for i, data in enumerate(data_loader):
         with torch.no_grad():
-            _, pa_preds, gt_masks = model(return_loss=False, **data)
+            if use_gt_masks:
+                _, pa_preds, gt_masks = model(return_loss=False, **data)
+            else:
+                _, pa_preds, gt_masks = model(return_loss=False, gt_masks=None, **data)
             # encode mask results
             if use_gt_masks:
                 gt_masks = [inst_mask.to_ndarray() for inst_mask in gt_masks]
