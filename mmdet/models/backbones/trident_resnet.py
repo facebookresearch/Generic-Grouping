@@ -280,7 +280,7 @@ class TridentResNet(ResNet):
             stage_plugins = self.make_stage_plugins(self.plugins, last_stage_idx)
         else:
             stage_plugins = None
-        planes = self.base_channels * 2 ** last_stage_idx
+        planes = self.base_channels * 2**last_stage_idx
         res_layer = make_trident_res_layer(
             TridentBottleneck,
             inplanes=(

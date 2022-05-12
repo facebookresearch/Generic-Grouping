@@ -271,7 +271,7 @@ class GridHead(nn.Module):
             )
 
         radius = rcnn_train_cfg.pos_radius
-        radius2 = radius ** 2
+        radius2 = radius**2
         for i in range(num_rois):
             # ignore small bboxes
             if pos_bbox_ws[i] <= self.grid_size or pos_bbox_hs[i] <= self.grid_size:

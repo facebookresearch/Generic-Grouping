@@ -263,7 +263,7 @@ class DetectoRS_ResNet(ResNet):
                 stage_plugins = self.make_stage_plugins(self.plugins, i)
             else:
                 stage_plugins = None
-            planes = self.base_channels * 2 ** i
+            planes = self.base_channels * 2**i
             res_layer = self.make_res_layer(
                 block=self.block,
                 inplanes=self.inplanes,

@@ -451,7 +451,7 @@ class ResNet(nn.Module):
                 stage_plugins = self.make_stage_plugins(plugins, i)
             else:
                 stage_plugins = None
-            planes = base_channels * 2 ** i
+            planes = base_channels * 2**i
             res_layer = self.make_res_layer(
                 block=self.block,
                 inplanes=self.inplanes,

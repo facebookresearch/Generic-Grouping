@@ -167,7 +167,7 @@ def test_ohem_sampler():
         add_gt_as_proposals=True,
     )
 
-    feats = [torch.rand(1, 256, int(2 ** i), int(2 ** i)) for i in [6, 5, 4, 3, 2]]
+    feats = [torch.rand(1, 256, int(2**i), int(2**i)) for i in [6, 5, 4, 3, 2]]
     sample_result = sampler.sample(
         assign_result, bboxes, gt_bboxes, gt_labels, feats=feats
     )
@@ -209,7 +209,7 @@ def test_ohem_sampler_empty_gt():
         add_gt_as_proposals=True,
     )
 
-    feats = [torch.rand(1, 256, int(2 ** i), int(2 ** i)) for i in [6, 5, 4, 3, 2]]
+    feats = [torch.rand(1, 256, int(2**i), int(2**i)) for i in [6, 5, 4, 3, 2]]
 
     sample_result = sampler.sample(
         assign_result, bboxes, gt_bboxes, gt_labels, feats=feats
@@ -251,7 +251,7 @@ def test_ohem_sampler_empty_pred():
         add_gt_as_proposals=True,
     )
 
-    feats = [torch.rand(1, 256, int(2 ** i), int(2 ** i)) for i in [6, 5, 4, 3, 2]]
+    feats = [torch.rand(1, 256, int(2**i), int(2**i)) for i in [6, 5, 4, 3, 2]]
 
     sample_result = sampler.sample(
         assign_result, bboxes, gt_bboxes, gt_labels, feats=feats
@@ -292,7 +292,7 @@ def test_score_hlr_sampler_empty_pred():
         add_gt_as_proposals=True,
     )
     gt_bboxes_ignore = torch.Tensor([])
-    feats = [torch.rand(1, 256, int(2 ** i), int(2 ** i)) for i in [6, 5, 4, 3, 2]]
+    feats = [torch.rand(1, 256, int(2**i), int(2**i)) for i in [6, 5, 4, 3, 2]]
 
     # empty bbox
     bboxes = torch.empty(0, 4)

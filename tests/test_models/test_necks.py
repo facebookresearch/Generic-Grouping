@@ -15,7 +15,7 @@ def test_fpn():
     """Tests fpn."""
     s = 64
     in_channels = [8, 16, 32, 64]
-    feat_sizes = [s // 2 ** i for i in range(4)]  # [64, 32, 16, 8]
+    feat_sizes = [s // 2**i for i in range(4)]  # [64, 32, 16, 8]
     out_channels = 8
     # `num_outs` is not equal to len(in_channels) - start_level
     with pytest.raises(AssertionError):
@@ -74,7 +74,7 @@ def test_fpn():
     assert len(outs) == fpn_model.num_outs
     for i in range(fpn_model.num_outs):
         outs[i].shape[1] == out_channels
-        outs[i].shape[2] == outs[i].shape[3] == s // (2 ** i)
+        outs[i].shape[2] == outs[i].shape[3] == s // (2**i)
 
     # Tests for fpn with no extra convs (pooling is used instead)
     fpn_model = FPN(
@@ -89,7 +89,7 @@ def test_fpn():
     assert not fpn_model.add_extra_convs
     for i in range(fpn_model.num_outs):
         outs[i].shape[1] == out_channels
-        outs[i].shape[2] == outs[i].shape[3] == s // (2 ** i)
+        outs[i].shape[2] == outs[i].shape[3] == s // (2**i)
 
     # Tests for fpn with lateral bns
     fpn_model = FPN(
@@ -106,7 +106,7 @@ def test_fpn():
     assert fpn_model.add_extra_convs == "on_input"
     for i in range(fpn_model.num_outs):
         outs[i].shape[1] == out_channels
-        outs[i].shape[2] == outs[i].shape[3] == s // (2 ** i)
+        outs[i].shape[2] == outs[i].shape[3] == s // (2**i)
     bn_exist = False
     for m in fpn_model.modules():
         if isinstance(m, _BatchNorm):
@@ -128,7 +128,7 @@ def test_fpn():
     assert fpn_model.add_extra_convs == "on_input"
     for i in range(fpn_model.num_outs):
         outs[i].shape[1] == out_channels
-        outs[i].shape[2] == outs[i].shape[3] == s // (2 ** i)
+        outs[i].shape[2] == outs[i].shape[3] == s // (2**i)
 
     # Scale factor instead of fixed upsample size upsample
     fpn_model = FPN(
@@ -143,7 +143,7 @@ def test_fpn():
     assert len(outs) == fpn_model.num_outs
     for i in range(fpn_model.num_outs):
         outs[i].shape[1] == out_channels
-        outs[i].shape[2] == outs[i].shape[3] == s // (2 ** i)
+        outs[i].shape[2] == outs[i].shape[3] == s // (2**i)
 
     # Extra convs source is 'inputs'
     fpn_model = FPN(
@@ -158,7 +158,7 @@ def test_fpn():
     assert len(outs) == fpn_model.num_outs
     for i in range(fpn_model.num_outs):
         outs[i].shape[1] == out_channels
-        outs[i].shape[2] == outs[i].shape[3] == s // (2 ** i)
+        outs[i].shape[2] == outs[i].shape[3] == s // (2**i)
 
     # Extra convs source is 'laterals'
     fpn_model = FPN(
@@ -173,7 +173,7 @@ def test_fpn():
     assert len(outs) == fpn_model.num_outs
     for i in range(fpn_model.num_outs):
         outs[i].shape[1] == out_channels
-        outs[i].shape[2] == outs[i].shape[3] == s // (2 ** i)
+        outs[i].shape[2] == outs[i].shape[3] == s // (2**i)
 
     # Extra convs source is 'outputs'
     fpn_model = FPN(
@@ -188,7 +188,7 @@ def test_fpn():
     assert len(outs) == fpn_model.num_outs
     for i in range(fpn_model.num_outs):
         outs[i].shape[1] == out_channels
-        outs[i].shape[2] == outs[i].shape[3] == s // (2 ** i)
+        outs[i].shape[2] == outs[i].shape[3] == s // (2**i)
 
     # extra_convs_on_inputs=False is equal to extra convs source is 'on_output'
     fpn_model = FPN(
@@ -204,7 +204,7 @@ def test_fpn():
     assert len(outs) == fpn_model.num_outs
     for i in range(fpn_model.num_outs):
         outs[i].shape[1] == out_channels
-        outs[i].shape[2] == outs[i].shape[3] == s // (2 ** i)
+        outs[i].shape[2] == outs[i].shape[3] == s // (2**i)
 
     # extra_convs_on_inputs=True is equal to extra convs source is 'on_input'
     fpn_model = FPN(
@@ -220,14 +220,14 @@ def test_fpn():
     assert len(outs) == fpn_model.num_outs
     for i in range(fpn_model.num_outs):
         outs[i].shape[1] == out_channels
-        outs[i].shape[2] == outs[i].shape[3] == s // (2 ** i)
+        outs[i].shape[2] == outs[i].shape[3] == s // (2**i)
 
 
 def test_channel_mapper():
     """Tests ChannelMapper."""
     s = 64
     in_channels = [8, 16, 32, 64]
-    feat_sizes = [s // 2 ** i for i in range(4)]  # [64, 32, 16, 8]
+    feat_sizes = [s // 2**i for i in range(4)]  # [64, 32, 16, 8]
     out_channels = 8
     kernel_size = 3
     feats = [
@@ -258,4 +258,4 @@ def test_channel_mapper():
     assert len(outs) == len(feats)
     for i in range(len(feats)):
         outs[i].shape[1] == out_channels
-        outs[i].shape[2] == outs[i].shape[3] == s // (2 ** i)
+        outs[i].shape[2] == outs[i].shape[3] == s // (2**i)

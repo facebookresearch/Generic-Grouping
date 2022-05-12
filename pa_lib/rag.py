@@ -369,7 +369,7 @@ def rag_mean_color(image, labels, connectivity=2, mode="distance", sigma=255.0):
         diff = graph.nodes[x]["mean color"] - graph.nodes[y]["mean color"]
         diff = np.linalg.norm(diff)
         if mode == "similarity":
-            d["weight"] = math.e ** (-(diff ** 2) / sigma)
+            d["weight"] = math.e ** (-(diff**2) / sigma)
         elif mode == "distance":
             d["weight"] = diff
         else:
