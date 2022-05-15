@@ -16,6 +16,7 @@ from mmdet.models.dense_heads import (
     FCOSHead,
     FSAFHead,
     GuidedAnchorHead,
+    paa_head,
     PAAHead,
     SABLRetinaHead,
     TransformerHead,
@@ -23,7 +24,6 @@ from mmdet.models.dense_heads import (
     YOLACTHead,
     YOLACTProtonet,
     YOLACTSegmHead,
-    paa_head,
 )
 from mmdet.models.dense_heads.paa_head import levels_to_images
 from mmdet.models.roi_heads.bbox_heads import BBoxHead, SABLHead
@@ -811,8 +811,7 @@ def _demodata_refine_boxes(n_roi, n_img, rng=0):
     """Create random test data for the
     ``mmdet.models.bbox_heads.bbox_head.BBoxHead.refine_boxes`` method."""
     import numpy as np
-    from mmdet.core.bbox.demodata import ensure_rng
-    from mmdet.core.bbox.demodata import random_boxes
+    from mmdet.core.bbox.demodata import ensure_rng, random_boxes
 
     try:
         import kwarray

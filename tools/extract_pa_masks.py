@@ -22,10 +22,7 @@ from mmcv.runner import get_dist_info, init_dist, load_checkpoint, wrap_fp16_mod
 from mmdet.apis import collect_results_cpu, collect_results_gpu
 from mmdet.datasets import build_dataloader, build_dataset, replace_ImageToTensor
 from mmdet.models import build_detector
-from pa_lib.evaluate_helper import (
-    compute_ious,
-    generate_pa_proposals,
-)
+from pa_lib.evaluate_helper import compute_ious, generate_pa_proposals
 from pa_lib.oln_ranker import generate_pa_proposals_with_oln
 from pycocotools import mask as maskUtils
 

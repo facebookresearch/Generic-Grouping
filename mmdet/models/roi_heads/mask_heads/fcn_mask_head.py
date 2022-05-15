@@ -9,11 +9,11 @@ import numpy as np
 import torch
 import torch.nn as nn
 import torch.nn.functional as F
-from mmcv.cnn import Conv2d, ConvModule, build_upsample_layer
+from mmcv.cnn import build_upsample_layer, Conv2d, ConvModule
 from mmcv.ops.carafe import CARAFEPack
 from mmcv.runner import auto_fp16, force_fp32
 from mmdet.core import mask_target
-from mmdet.models.builder import HEADS, build_loss
+from mmdet.models.builder import build_loss, HEADS
 from torch.nn.modules.utils import _pair
 
 BYTES_PER_FLOAT = 4

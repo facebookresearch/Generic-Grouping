@@ -32,7 +32,7 @@ from mmdet.core import (
 )
 from mmdet.core.bbox import bbox_overlaps
 
-from ..builder import HEADS, build_loss
+from ..builder import build_loss, HEADS
 from .rpn_head import RPNHead
 
 

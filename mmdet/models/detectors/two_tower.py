@@ -9,7 +9,7 @@ import torch
 import torch.nn as nn
 from mmcv.runner import load_checkpoint
 
-from ..builder import DETECTORS, build_backbone, build_head, build_neck, build_detector
+from ..builder import build_backbone, build_detector, build_head, build_neck, DETECTORS
 from .base import BaseDetector
 
 RPN_SCORE_LAYERS = [

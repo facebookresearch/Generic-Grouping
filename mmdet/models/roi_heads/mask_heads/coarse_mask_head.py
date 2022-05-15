@@ -6,7 +6,7 @@
 
 
 import torch.nn as nn
-from mmcv.cnn import ConvModule, Linear, constant_init, xavier_init
+from mmcv.cnn import constant_init, ConvModule, Linear, xavier_init
 from mmcv.runner import auto_fp16
 from mmdet.models.builder import HEADS
 

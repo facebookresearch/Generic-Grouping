@@ -17,8 +17,8 @@ from .affinity2mask import potential2masks_ucm_hierarchy
 from .evaluate_helper import (
     compute_group_size,
     compute_ranking_score,
-    get_nms_remove_ind,
     filter_mask_by_edge,
+    get_nms_remove_ind,
 )
 
 

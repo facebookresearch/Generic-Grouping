@@ -11,12 +11,12 @@ import numpy as np
 import torch
 from mmcv.parallel import MMDataParallel, MMDistributedDataParallel
 from mmcv.runner import (
-    HOOKS,
+    build_optimizer,
     DistSamplerSeedHook,
     EpochBasedRunner,
     Fp16OptimizerHook,
+    HOOKS,
     OptimizerHook,
-    build_optimizer,
 )
 from mmcv.utils import build_from_cfg
 from mmdet.core import DistEvalHook, EvalHook

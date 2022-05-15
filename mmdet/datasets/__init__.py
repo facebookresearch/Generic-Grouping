@@ -5,7 +5,7 @@
 # LICENSE file in the root directory of this source tree
 
 
-from .builder import DATASETS, PIPELINES, build_dataloader, build_dataset
+from .builder import build_dataloader, build_dataset, DATASETS, PIPELINES
 from .coco import CocoDataset
 from .coco_split import CocoSplitDataset
 from .coco_split_online import CocoSplitOnlineDataset

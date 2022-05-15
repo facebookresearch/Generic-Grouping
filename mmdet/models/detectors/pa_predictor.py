@@ -13,12 +13,12 @@ import torch.nn as nn
 import torch.nn.functional as F
 
 from ..builder import (
-    DETECTORS,
-    HEADS,
     build_backbone,
     build_head,
-    build_neck,
     build_loss,
+    build_neck,
+    DETECTORS,
+    HEADS,
 )
 from ..losses.focal_loss import FocalLoss
 from .base import BaseDetector

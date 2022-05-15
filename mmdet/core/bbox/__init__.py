@@ -14,7 +14,7 @@ from .assigners import (
 )
 from .builder import build_assigner, build_bbox_coder, build_sampler
 from .coder import BaseBBoxCoder, DeltaXYWHBBoxCoder, PseudoBBoxCoder, TBLRBBoxCoder
-from .iou_calculators import BboxOverlaps2D, bbox_overlaps
+from .iou_calculators import bbox_overlaps, BboxOverlaps2D
 from .samplers import (
     BaseSampler,
     CombinedSampler,

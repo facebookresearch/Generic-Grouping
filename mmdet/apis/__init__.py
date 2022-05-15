@@ -12,10 +12,10 @@ from .inference import (
     show_result_pyplot,
 )
 from .test import (
+    collect_results_cpu,
+    collect_results_gpu,
     multi_gpu_test,
     single_gpu_test,
-    collect_results_gpu,
-    collect_results_cpu,
 )
 from .train import get_root_logger, set_random_seed, train_detector
 

@@ -7,7 +7,7 @@
 
 import warnings
 
-from mmcv.runner import Fp16OptimizerHook, auto_fp16, force_fp32, wrap_fp16_model
+from mmcv.runner import auto_fp16, force_fp32, Fp16OptimizerHook, wrap_fp16_model
 
 
 class DeprecatedFp16OptimizerHook(Fp16OptimizerHook):

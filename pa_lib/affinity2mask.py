@@ -10,14 +10,13 @@ import networkx as nx
 import numpy as np
 import scipy
 import skimage
-from scipy import ndimage as ndi
-from scipy import sparse
+from scipy import ndimage as ndi, sparse
 from skimage.feature import peak_local_max
 from skimage.future import graph as sk_graph
 from skimage.segmentation import watershed
 
 from .cython_lib.cython_lib.graph_helper import generate_nodes_edges_labels
-from .rag import rag_boundary, merge_hierarchical
+from .rag import merge_hierarchical, rag_boundary
 
 
 def loc2idx(loc, height, width):

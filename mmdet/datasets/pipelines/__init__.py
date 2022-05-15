@@ -20,10 +20,10 @@ from .formating import (
     Collect,
     DefaultFormatBundle,
     ImageToTensor,
+    to_tensor,
     ToDataContainer,
     ToTensor,
     Transpose,
-    to_tensor,
 )
 from .instaboost import InstaBoost
 from .loading import (

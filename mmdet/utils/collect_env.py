@@ -6,8 +6,7 @@
 
 
 import mmdet
-from mmcv.utils import collect_env as collect_base_env
-from mmcv.utils import get_git_hash
+from mmcv.utils import collect_env as collect_base_env, get_git_hash
 
 
 def collect_env():

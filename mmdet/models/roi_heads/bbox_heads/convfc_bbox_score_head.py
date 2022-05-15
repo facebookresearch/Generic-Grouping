@@ -18,9 +18,9 @@ import torch.nn as nn
 import torch.nn.functional as F
 from mmcv.cnn import ConvModule
 from mmcv.runner import force_fp32
-from mmdet.core import multi_apply, multiclass_nms, build_bbox_coder
+from mmdet.core import build_bbox_coder, multi_apply, multiclass_nms
 from mmdet.core.bbox import bbox_overlaps
-from mmdet.models.builder import HEADS, build_loss
+from mmdet.models.builder import build_loss, HEADS
 from mmdet.models.losses import accuracy
 
 from .bbox_head import BBoxHead

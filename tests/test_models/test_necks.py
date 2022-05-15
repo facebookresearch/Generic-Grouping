@@ -7,7 +7,7 @@
 
 import pytest
 import torch
-from mmdet.models.necks import FPN, ChannelMapper
+from mmdet.models.necks import ChannelMapper, FPN
 from torch.nn.modules.batchnorm import _BatchNorm
 
 

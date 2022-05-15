@@ -14,7 +14,7 @@ from unittest.mock import MagicMock, patch
 import pytest
 import torch
 import torch.nn as nn
-from mmcv.runner import EpochBasedRunner, build_optimizer
+from mmcv.runner import build_optimizer, EpochBasedRunner
 from mmcv.utils import get_logger
 from mmdet.core import DistEvalHook, EvalHook
 from torch.utils.data import DataLoader, Dataset

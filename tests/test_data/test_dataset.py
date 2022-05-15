@@ -21,13 +21,13 @@ import torch.nn as nn
 from mmcv.runner import EpochBasedRunner
 from mmdet.core.evaluation import DistEvalHook, EvalHook
 from mmdet.datasets import (
-    DATASETS,
+    build_dataset,
     ClassBalancedDataset,
     CocoDataset,
     ConcatDataset,
     CustomDataset,
+    DATASETS,
     RepeatDataset,
-    build_dataset,
 )
 from torch.utils.data import DataLoader
 

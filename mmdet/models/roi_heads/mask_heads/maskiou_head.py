@@ -8,9 +8,9 @@
 import numpy as np
 import torch
 import torch.nn as nn
-from mmcv.cnn import Conv2d, Linear, MaxPool2d, kaiming_init, normal_init
+from mmcv.cnn import Conv2d, kaiming_init, Linear, MaxPool2d, normal_init
 from mmcv.runner import force_fp32
-from mmdet.models.builder import HEADS, build_loss
+from mmdet.models.builder import build_loss, HEADS
 from torch.nn.modules.utils import _pair
 
 

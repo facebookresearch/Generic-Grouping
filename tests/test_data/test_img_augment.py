@@ -78,7 +78,7 @@ def test_adjust_color():
 def test_imequalize(nb_rand_test=100):
     def _imequalize(img):
         # equalize the image using PIL.ImageOps.equalize
-        from PIL import ImageOps, Image
+        from PIL import Image, ImageOps
 
         img = Image.fromarray(img)
         equalized_img = np.asarray(ImageOps.equalize(img))

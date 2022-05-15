@@ -12,9 +12,8 @@ import math
 import networkx as nx
 import numpy as np
 from numpy.lib.stride_tricks import as_strided
-from scipy import ndimage as ndi
-from scipy import sparse
-from skimage import segmentation, color, measure, util
+from scipy import ndimage as ndi, sparse
+from skimage import color, measure, segmentation, util
 
 
 def _edge_generator_from_csr(csr_matrix):
@@ -496,8 +495,7 @@ def show_rag(
     >>> lc = graph.show_rag(labels, g, img)
     >>> cbar = plt.colorbar(lc)
     """
-    from matplotlib import colors, cm
-    from matplotlib import pyplot as plt
+    from matplotlib import cm, colors, pyplot as plt
     from matplotlib.collections import LineCollection
 
     if not in_place:

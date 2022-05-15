@@ -5,7 +5,7 @@
 # LICENSE file in the root directory of this source tree
 
 
-from mmcv.utils import Registry, build_from_cfg
+from mmcv.utils import build_from_cfg, Registry
 
 BBOX_ASSIGNERS = Registry("bbox_assigner")
 BBOX_SAMPLERS = Registry("bbox_sampler")

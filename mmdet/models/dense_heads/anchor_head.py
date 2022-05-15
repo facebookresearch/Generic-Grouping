@@ -21,7 +21,7 @@ from mmdet.core import (
     unmap,
 )
 
-from ..builder import HEADS, build_loss
+from ..builder import build_loss, HEADS
 from .base_dense_head import BaseDenseHead
 from .dense_test_mixins import BBoxTestMixin
 

@@ -5,7 +5,7 @@
 # LICENSE file in the root directory of this source tree
 
 
-from mmcv.utils import Registry, build_from_cfg
+from mmcv.utils import build_from_cfg, Registry
 
 IOU_CALCULATORS = Registry("IoU calculator")
 

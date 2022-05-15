@@ -5,7 +5,7 @@
 # LICENSE file in the root directory of this source tree
 
 
-from .dist_utils import DistOptimizerHook, allreduce_grads, reduce_mean
+from .dist_utils import allreduce_grads, DistOptimizerHook, reduce_mean
 from .misc import mask2ndarray, multi_apply, unmap
 
 __all__ = [

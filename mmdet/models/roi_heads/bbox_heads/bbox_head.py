@@ -10,7 +10,7 @@ import torch.nn as nn
 import torch.nn.functional as F
 from mmcv.runner import auto_fp16, force_fp32
 from mmdet.core import build_bbox_coder, multi_apply, multiclass_nms
-from mmdet.models.builder import HEADS, build_loss
+from mmdet.models.builder import build_loss, HEADS
 from mmdet.models.losses import accuracy
 from torch.nn.modules.utils import _pair
 
