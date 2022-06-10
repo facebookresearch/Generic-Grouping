@@ -93,7 +93,7 @@ def build_dataloader(
     dist=True,
     shuffle=True,
     seed=None,
-    **kwargs
+    **kwargs,
 ):
     """Build PyTorch DataLoader.
 
@@ -146,7 +146,7 @@ def build_dataloader(
         collate_fn=partial(collate, samples_per_gpu=samples_per_gpu),
         pin_memory=False,
         worker_init_fn=init_fn,
-        **kwargs
+        **kwargs,
     )
 
     return data_loader

@@ -34,7 +34,7 @@ class BaseDenseHead(nn.Module, metaclass=ABCMeta):
         gt_labels=None,
         gt_bboxes_ignore=None,
         proposal_cfg=None,
-        **kwargs
+        **kwargs,
     ):
         """
         Args:

@@ -39,7 +39,7 @@ class ResLayer(nn.Sequential):
         conv_cfg=None,
         norm_cfg=dict(type="BN"),
         downsample_first=True,
-        **kwargs
+        **kwargs,
     ):
         self.block = block
 
@@ -82,7 +82,7 @@ class ResLayer(nn.Sequential):
                     downsample=downsample,
                     conv_cfg=conv_cfg,
                     norm_cfg=norm_cfg,
-                    **kwargs
+                    **kwargs,
                 )
             )
             inplanes = planes * block.expansion
@@ -94,7 +94,7 @@ class ResLayer(nn.Sequential):
                         stride=1,
                         conv_cfg=conv_cfg,
                         norm_cfg=norm_cfg,
-                        **kwargs
+                        **kwargs,
                     )
                 )
 
@@ -107,7 +107,7 @@ class ResLayer(nn.Sequential):
                         stride=1,
                         conv_cfg=conv_cfg,
                         norm_cfg=norm_cfg,
-                        **kwargs
+                        **kwargs,
                     )
                 )
             layers.append(
@@ -118,7 +118,7 @@ class ResLayer(nn.Sequential):
                     downsample=downsample,
                     conv_cfg=conv_cfg,
                     norm_cfg=norm_cfg,
-                    **kwargs
+                    **kwargs,
                 )
             )
         super(ResLayer, self).__init__(*layers)

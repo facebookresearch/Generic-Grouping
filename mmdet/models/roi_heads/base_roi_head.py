@@ -89,7 +89,7 @@ class BaseRoIHead(nn.Module, metaclass=ABCMeta):
         gt_labels,
         gt_bboxes_ignore=None,
         gt_masks=None,
-        **kwargs
+        **kwargs,
     ):
         """Forward function during training."""
         pass
