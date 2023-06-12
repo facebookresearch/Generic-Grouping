@@ -204,7 +204,7 @@ def test_bitmap_mask_pad():
 
 def test_bitmap_mask_crop():
     # crop with empty bitmap masks
-    dummy_bbox = np.array([0, 10, 10, 27], dtype=np.int)
+    dummy_bbox = np.array([0, 10, 10, 27], dtype=int)
     raw_masks = dummy_raw_bitmap_masks((0, 28, 28))
     bitmap_masks = BitmapMasks(raw_masks, 28, 28)
     cropped_masks = bitmap_masks.crop(dummy_bbox)
@@ -515,7 +515,7 @@ def test_polygon_mask_flip():
 
 
 def test_polygon_mask_crop():
-    dummy_bbox = np.array([0, 10, 10, 27], dtype=np.int)
+    dummy_bbox = np.array([0, 10, 10, 27], dtype=int)
     # crop with empty polygon masks
     raw_masks = dummy_raw_polygon_masks((0, 28, 28))
     polygon_masks = PolygonMasks(raw_masks, 28, 28)

@@ -207,7 +207,7 @@ def test_random_crop():
         bboxes_left_top = np.random.uniform(0, 0.5, size=(num_bboxes, 2))
         bboxes_right_bottom = np.random.uniform(0.5, 1, size=(num_bboxes, 2))
         bboxes = np.concatenate((bboxes_left_top, bboxes_right_bottom), 1)
-        bboxes = (bboxes * np.array([img_w, img_h, img_w, img_h])).astype(np.int)
+        bboxes = (bboxes * np.array([img_w, img_h, img_w, img_h])).astype(int)
         return bboxes
 
     h, w, _ = img.shape
@@ -312,7 +312,7 @@ def test_min_iou_random_crop():
         bboxes_left_top = np.random.uniform(0, 0.5, size=(num_bboxes, 2))
         bboxes_right_bottom = np.random.uniform(0.5, 1, size=(num_bboxes, 2))
         bboxes = np.concatenate((bboxes_left_top, bboxes_right_bottom), 1)
-        bboxes = (bboxes * np.array([img_w, img_h, img_w, img_h])).astype(np.int)
+        bboxes = (bboxes * np.array([img_w, img_h, img_w, img_h])).astype(int)
         return bboxes
 
     results = dict()
@@ -552,7 +552,7 @@ def test_random_center_crop_pad():
         bboxes_left_top = np.random.uniform(0, 0.5, size=(num_bboxes, 2))
         bboxes_right_bottom = np.random.uniform(0.5, 1, size=(num_bboxes, 2))
         bboxes = np.concatenate((bboxes_left_top, bboxes_right_bottom), 1)
-        bboxes = (bboxes * np.array([img_w, img_h, img_w, img_h])).astype(np.int)
+        bboxes = (bboxes * np.array([img_w, img_h, img_w, img_h])).astype(int)
         return bboxes
 
     h, w, _ = results["img_shape"]

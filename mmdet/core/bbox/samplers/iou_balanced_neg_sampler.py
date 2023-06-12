@@ -74,7 +74,7 @@ class IoUBalancedNegSampler(RandomSampler):
             if len(tmp_inds) > per_num_expected:
                 tmp_sampled_set = self.random_choice(tmp_inds, per_num_expected)
             else:
-                tmp_sampled_set = np.array(tmp_inds, dtype=np.int)
+                tmp_sampled_set = np.array(tmp_inds, dtype=int)
             sampled_inds.append(tmp_sampled_set)
 
         sampled_inds = np.concatenate(sampled_inds)
@@ -138,14 +138,14 @@ class IoUBalancedNegSampler(RandomSampler):
                         iou_sampling_neg_inds, num_expected_iou_sampling
                     )
             else:
-                iou_sampled_inds = np.array(iou_sampling_neg_inds, dtype=np.int)
+                iou_sampled_inds = np.array(iou_sampling_neg_inds, dtype=int)
             num_expected_floor = num_expected - len(iou_sampled_inds)
             if len(floor_neg_inds) > num_expected_floor:
                 sampled_floor_inds = self.random_choice(
                     floor_neg_inds, num_expected_floor
                 )
             else:
-                sampled_floor_inds = np.array(floor_neg_inds, dtype=np.int)
+                sampled_floor_inds = np.array(floor_neg_inds, dtype=int)
             sampled_inds = np.concatenate((sampled_floor_inds, iou_sampled_inds))
             if len(sampled_inds) < num_expected:
                 num_extra = num_expected - len(sampled_inds)
