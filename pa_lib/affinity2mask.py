@@ -271,7 +271,7 @@ def construct_affinity_matrix(pa):
     col[data_ptr : data_ptr + vertical_boundary.size] = orig_idx[:-1].flatten()
 
     affinity_matrix = sparse.csr_matrix(
-        (data, (row, col)), shape=(max_idx, max_idx), dtype=np.float
+        (data, (row, col)), shape=(max_idx, max_idx), dtype=float
     )
     return affinity_matrix
 
@@ -286,7 +286,7 @@ def construct_diagonal_matrix(pa):
     diagonal_matrix = sparse.csr_matrix(
         (summary.flatten(), (np.arange(max_idx), np.arange(max_idx))),
         shape=(max_idx, max_idx),
-        dtype=np.float,
+        dtype=float,
     )
     return diagonal_matrix
 

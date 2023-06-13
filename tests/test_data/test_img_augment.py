@@ -35,7 +35,7 @@ def construct_toy_data(poly2mask=True):
         gt_masks = np.array([[0, 1, 1, 0], [0, 1, 0, 0]], dtype=np.uint8)[None, :, :]
         results["gt_masks"] = BitmapMasks(gt_masks, 2, 4)
     else:
-        raw_masks = [[np.array([1, 0, 2, 0, 2, 1, 1, 1], dtype=np.float)]]
+        raw_masks = [[np.array([1, 0, 2, 0, 2, 1, 1, 1], dtype=float)]]
         results["gt_masks"] = PolygonMasks(raw_masks, 2, 4)
     # segmentations
     results["seg_fields"] = ["gt_semantic_seg"]
