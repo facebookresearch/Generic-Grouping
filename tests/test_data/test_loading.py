@@ -17,7 +17,7 @@ from mmdet.datasets.pipelines import (
 )
 
 
-class TestLoading(object):
+class TestLoading:
     @classmethod
     def setup_class(cls):
         cls.data_prefix = osp.join(osp.dirname(__file__), "../data")

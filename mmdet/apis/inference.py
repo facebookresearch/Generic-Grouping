@@ -62,7 +62,7 @@ def init_detector(config, checkpoint=None, device="cuda:0", cfg_options=None):
     return model
 
 
-class LoadImage(object):
+class LoadImage:
     """A simple pipeline to load image."""
 
     def __call__(self, results):

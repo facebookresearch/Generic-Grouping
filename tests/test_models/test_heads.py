@@ -33,7 +33,7 @@ from mmdet.models.roi_heads.mask_heads import FCNMaskHead, MaskIoUHead
 def test_paa_head_loss():
     """Tests paa head loss when truth is empty and non-empty."""
 
-    class mock_skm(object):
+    class mock_skm:
         def GaussianMixture(self, *args, **kwargs):
             return self
 

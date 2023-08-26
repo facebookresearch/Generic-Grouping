@@ -23,7 +23,7 @@ if sys.version_info >= (3, 7):
     from mmdet.utils.contextmanagers import completed
 
 
-class BBoxTestMixin(object):
+class BBoxTestMixin:
 
     if sys.version_info >= (3, 7):
 
@@ -148,7 +148,7 @@ class BBoxTestMixin(object):
         return det_bboxes, det_labels
 
 
-class MaskTestMixin(object):
+class MaskTestMixin:
 
     if sys.version_info >= (3, 7):
 

@@ -44,7 +44,7 @@ def bbox2fields():
 
 
 @PIPELINES.register_module()
-class AutoAugment(object):
+class AutoAugment:
     """Auto augmentation.
 
     This data augmentation is proposed in `Learning Data Augmentation
@@ -112,7 +112,7 @@ class AutoAugment(object):
 
 
 @PIPELINES.register_module()
-class Shear(object):
+class Shear:
     """Apply Shear Transformation to image (and its corresponding bbox, mask,
     segmentation).
 
@@ -355,7 +355,7 @@ class Shear(object):
 
 
 @PIPELINES.register_module()
-class Rotate(object):
+class Rotate:
     """Apply Rotate Transformation to image (and its corresponding bbox, mask,
     segmentation).
 
@@ -578,7 +578,7 @@ class Rotate(object):
 
 
 @PIPELINES.register_module()
-class Translate(object):
+class Translate:
     """Translate the images, bboxes, masks and segmentation maps horizontally
     or vertically.
 
@@ -745,7 +745,7 @@ class Translate(object):
 
 
 @PIPELINES.register_module()
-class ColorTransform(object):
+class ColorTransform:
     """Apply Color transformation to image. The bboxes, masks, and
     segmentations are not modified.
 
@@ -791,7 +791,7 @@ class ColorTransform(object):
 
 
 @PIPELINES.register_module()
-class EqualizeTransform(object):
+class EqualizeTransform:
     """Apply Equalize transformation to image. The bboxes, masks and
     segmentations are not modified.
 
@@ -829,7 +829,7 @@ class EqualizeTransform(object):
 
 
 @PIPELINES.register_module()
-class BrightnessTransform(object):
+class BrightnessTransform:
     """Apply Brightness transformation to image. The bboxes, masks and
     segmentations are not modified.
 
@@ -874,7 +874,7 @@ class BrightnessTransform(object):
 
 
 @PIPELINES.register_module()
-class ContrastTransform(object):
+class ContrastTransform:
     """Apply Contrast transformation to image. The bboxes, masks and
     segmentations are not modified.
 

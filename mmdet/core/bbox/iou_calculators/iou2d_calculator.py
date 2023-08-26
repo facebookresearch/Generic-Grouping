@@ -11,7 +11,7 @@ from .builder import IOU_CALCULATORS
 
 
 @IOU_CALCULATORS.register_module()
-class BboxOverlaps2D(object):
+class BboxOverlaps2D:
     """2D Overlaps (e.g. IoUs, GIoUs) Calculator."""
 
     def __call__(self, bboxes1, bboxes2, mode="iou", is_aligned=False):

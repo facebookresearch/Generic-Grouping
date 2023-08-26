@@ -45,7 +45,7 @@ Example:
 import warnings
 
 
-class NiceRepr(object):
+class NiceRepr:
     """Inherit from this class and define ``__nice__`` to "nicely" print your
     objects.
 
