@@ -51,7 +51,7 @@ def palette2filter(palette, neighbor_sizes=None, bidirection=True):
     """
 
     def generate_cross_filter(number_of_neighbors, dist):
-        cross_filter = np.zeros((number_of_neighbors,) + palette.shape, dtype=np.bool)
+        cross_filter = np.zeros((number_of_neighbors,) + palette.shape, dtype=bool)
         cross_filter[0, dist:, :] = np.logical_or(palette[dist:, :], palette[:-dist, :])
         cross_filter[1, :, dist:] = np.logical_or(palette[:, dist:], palette[:, :-dist])
         cross_filter[2, dist:, dist:] = np.logical_or(
@@ -81,7 +81,7 @@ def palette2filter(palette, neighbor_sizes=None, bidirection=True):
     number_of_span = len(neighbor_sizes)
     number_of_neighbors_per_span = 8 if bidirection else 4
     potential_filter = np.zeros(
-        (number_of_neighbors_per_span * number_of_span,) + palette.shape, dtype=np.bool
+        (number_of_neighbors_per_span * number_of_span,) + palette.shape, dtype=bool
     )
     for neighbor_idx, dist in enumerate(neighbor_sizes):
         offset = neighbor_idx * number_of_neighbors_per_span
@@ -103,7 +103,7 @@ def palette2weight(
     """
 
     def generate_cross_weight(number_of_neighbors, dist):
-        cross_filter = np.zeros((number_of_neighbors,) + palette.shape, dtype=np.bool)
+        cross_filter = np.zeros((number_of_neighbors,) + palette.shape, dtype=bool)
         cross_filter[0, dist:, :] = np.maximum(palette[dist:, :], palette[:-dist, :])
         cross_filter[1, :, dist:] = np.maximum(palette[:, dist:], palette[:, :-dist])
         cross_filter[2, dist:, dist:] = np.maximum(
@@ -152,7 +152,7 @@ def palette2weight(
     number_of_span = len(neighbor_sizes)
     number_of_neighbors_per_span = 8 if bidirection else 4
     potential_weight = np.zeros(
-        (number_of_neighbors_per_span * number_of_span,) + palette.shape, dtype=np.bool
+        (number_of_neighbors_per_span * number_of_span,) + palette.shape, dtype=bool
     )
     for neighbor_idx, dist in enumerate(neighbor_sizes):
         offset = neighbor_idx * number_of_neighbors_per_span
