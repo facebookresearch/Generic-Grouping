@@ -61,8 +61,8 @@ def rank_by_variance(image, masks, weight_by_size=False, nms=1.0):
 def compute_iou(annotation, segmentation, mask_threshold=0.0):
     if type(annotation) == torch.Tensor:
         annotation = annotation.numpy()
-    annotation = annotation.astype(np.bool)
-    segmentation = (segmentation > mask_threshold).astype(np.bool)
+    annotation = annotation.astype(bool)
+    segmentation = (segmentation > mask_threshold).astype(bool)
 
     if np.isclose(np.sum(annotation), 0) and np.isclose(np.sum(segmentation), 0):
         return 1
