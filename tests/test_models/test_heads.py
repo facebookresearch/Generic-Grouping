@@ -41,7 +41,7 @@ def test_paa_head_loss():
             pass
 
         def predict(self, loss):
-            components = np.zeros_like(loss, dtype=np.long)
+            components = np.zeros_like(loss, dtype=int)
             return components.reshape(-1)
 
         def score_samples(self, loss):
