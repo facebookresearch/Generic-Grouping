@@ -387,9 +387,9 @@ class BitmapMasks(BaseInstanceMasks):
             expanded_mask = np.zeros(
                 (len(self), expanded_h, expanded_w), dtype=np.uint8
             )
-            expanded_mask[
-                :, top : top + self.height, left : left + self.width
-            ] = self.masks
+            expanded_mask[:, top : top + self.height, left : left + self.width] = (
+                self.masks
+            )
         return BitmapMasks(expanded_mask, expanded_h, expanded_w)
 
     def translate(

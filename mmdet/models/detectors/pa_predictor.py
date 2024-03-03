@@ -85,9 +85,9 @@ def palette2filter(palette, neighbor_sizes=None, bidirection=True):
     )
     for neighbor_idx, dist in enumerate(neighbor_sizes):
         offset = neighbor_idx * number_of_neighbors_per_span
-        potential_filter[
-            offset : offset + number_of_neighbors_per_span
-        ] = generate_cross_filter(number_of_neighbors_per_span, dist)
+        potential_filter[offset : offset + number_of_neighbors_per_span] = (
+            generate_cross_filter(number_of_neighbors_per_span, dist)
+        )
     return potential_filter
 
 
@@ -156,9 +156,9 @@ def palette2weight(
     )
     for neighbor_idx, dist in enumerate(neighbor_sizes):
         offset = neighbor_idx * number_of_neighbors_per_span
-        potential_weight[
-            offset : offset + number_of_neighbors_per_span
-        ] = generate_cross_weight(number_of_neighbors_per_span, dist)
+        potential_weight[offset : offset + number_of_neighbors_per_span] = (
+            generate_cross_weight(number_of_neighbors_per_span, dist)
+        )
     return potential_weight
 
 
@@ -205,9 +205,9 @@ def palette2affinity(palette, neighbor_sizes=None, bidirection=True):
     )
     for neighbor_idx, dist in enumerate(neighbor_sizes):
         offset = neighbor_idx * number_of_neighbors_per_span
-        pairwise_affinity[
-            offset : offset + number_of_neighbors_per_span
-        ] = generate_cross_affinity(number_of_neighbors_per_span, dist)
+        pairwise_affinity[offset : offset + number_of_neighbors_per_span] = (
+            generate_cross_affinity(number_of_neighbors_per_span, dist)
+        )
     return pairwise_affinity
 
 

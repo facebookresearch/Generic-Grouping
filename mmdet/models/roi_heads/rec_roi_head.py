@@ -310,9 +310,11 @@ class RecRoIHead(StandardRoIHead):
                     mask_preds.append(mask_result["mask_pred"])
             else:
                 _bboxes = [
-                    det_bboxes[i][:, :4] * scale_factors[i]
-                    if rescale
-                    else det_bboxes[i][:, :4]
+                    (
+                        det_bboxes[i][:, :4] * scale_factors[i]
+                        if rescale
+                        else det_bboxes[i][:, :4]
+                    )
                     for i in range(len(det_bboxes))
                 ]
                 mask_rois = bbox2roi(_bboxes)

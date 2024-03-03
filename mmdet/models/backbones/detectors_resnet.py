@@ -29,6 +29,7 @@ class Bottleneck(_Bottleneck):
              base class.
          sac (dict, optional): Dictionary to construct SAC. Default: None.
     """
+
     expansion = 4
 
     def __init__(self, inplanes, planes, rfp_inplanes=None, sac=None, **kwargs):
