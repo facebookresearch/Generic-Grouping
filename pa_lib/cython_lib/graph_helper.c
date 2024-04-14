@@ -257,7 +257,7 @@ enum { __pyx_check_sizeof_voidp = 1 / (int)(SIZEOF_VOID_P == sizeof(void*)) };
 #ifndef CYTHON_MAYBE_UNUSED_VAR
 #if defined(__cplusplus)
 template <class T>
-void CYTHON_MAYBE_UNUSED_VAR(const T&) {}
+void CYTHON_MAYBE_UNUSED_VAR(const T&){}
 #else
 #define CYTHON_MAYBE_UNUSED_VAR(x) (void)(x)
 #endif
@@ -975,7 +975,7 @@ static const char* __pyx_f[] = {
     "type.pxd",
 };
 /* BufferFormatStructs.proto */
-#define IS_UNSIGNED(type) (((type)-1) > 0)
+#define IS_UNSIGNED(type) (((type) - 1) > 0)
 struct __Pyx_StructField_;
 #define __PYX_BUF_FLAGS_PACKED_STRUCT (1 << 0)
 typedef struct {
@@ -1460,7 +1460,9 @@ static size_t __pyx_pyframe_localsplus_offset = 0;
        sizeof(PyFrameObject) ==                          \
        offsetof(PyFrameObject, f_localsplus) +           \
            Py_MEMBER_SIZE(PyFrameObject, f_localsplus)), \
-   (void)(__pyx_pyframe_localsplus_offset = ((size_t)PyFrame_Type.tp_basicsize) - Py_MEMBER_SIZE(PyFrameObject, f_localsplus)))
+   (void)(__pyx_pyframe_localsplus_offset =              \
+              ((size_t)PyFrame_Type.tp_basicsize) -      \
+              Py_MEMBER_SIZE(PyFrameObject, f_localsplus)))
 #define __Pyx_PyFrame_GetLocalsplus(frame)  \
   (assert(__pyx_pyframe_localsplus_offset), \
    (PyObject**)(((char*)(frame)) + __pyx_pyframe_localsplus_offset))
@@ -1505,7 +1507,7 @@ static CYTHON_INLINE int __Pyx_PyList_Append(PyObject* list, PyObject* x) {
 
 /* PyDictVersioning.proto */
 #if CYTHON_USE_DICT_VERSIONS && CYTHON_USE_TYPE_SLOTS
-#define __PYX_DICT_VERSION_INIT ((PY_UINT64_T)-1)
+#define __PYX_DICT_VERSION_INIT ((PY_UINT64_T) - 1)
 #define __PYX_GET_DICT_VERSION(dict) (((PyDictObject*)(dict))->ma_version_tag)
 #define __PYX_UPDATE_DICT_CACHE(dict, value, cache_var, version_var) \
   (version_var) = __PYX_GET_DICT_VERSION(dict);                      \
@@ -6552,8 +6554,8 @@ static CYTHON_INLINE PyObject* __Pyx_PyCFunction_FastCall(
      caller loses its exception */
   assert(!PyErr_Occurred());
   if ((PY_VERSION_HEX < 0x030700A0) || unlikely(flags & METH_KEYWORDS)) {
-    return (*((__Pyx_PyCFunctionFastWithKeywords)(void*)
-                  meth))(self, args, nargs, NULL);
+    return (*((__Pyx_PyCFunctionFastWithKeywords)(void*)meth))(
+        self, args, nargs, NULL);
   } else {
     return (*((__Pyx_PyCFunctionFast)(void*)meth))(self, args, nargs);
   }
@@ -8182,21 +8184,21 @@ static void __Pyx_ReleaseBuffer(Py_buffer* view) {
   __PYX__VERIFY_RETURN_INT(target_type, func_type, func_value, 0)
 #define __PYX_VERIFY_RETURN_INT_EXC(target_type, func_type, func_value) \
   __PYX__VERIFY_RETURN_INT(target_type, func_type, func_value, 1)
-#define __PYX__VERIFY_RETURN_INT(target_type, func_type, func_value, exc) \
-  {                                                                       \
-    func_type value = func_value;                                         \
-    if (sizeof(target_type) < sizeof(func_type)) {                        \
-      if (unlikely(value != (func_type)(target_type)value)) {             \
-        func_type zero = 0;                                               \
-        if (exc && unlikely(value == (func_type)-1 && PyErr_Occurred()))  \
-          return (target_type)-1;                                         \
-        if (is_unsigned && unlikely(value < zero))                        \
-          goto raise_neg_overflow;                                        \
-        else                                                              \
-          goto raise_overflow;                                            \
-      }                                                                   \
-    }                                                                     \
-    return (target_type)value;                                            \
+#define __PYX__VERIFY_RETURN_INT(target_type, func_type, func_value, exc)  \
+  {                                                                        \
+    func_type value = func_value;                                          \
+    if (sizeof(target_type) < sizeof(func_type)) {                         \
+      if (unlikely(value != (func_type)(target_type)value)) {              \
+        func_type zero = 0;                                                \
+        if (exc && unlikely(value == (func_type) - 1 && PyErr_Occurred())) \
+          return (target_type) - 1;                                        \
+        if (is_unsigned && unlikely(value < zero))                         \
+          goto raise_neg_overflow;                                         \
+        else                                                               \
+          goto raise_overflow;                                             \
+      }                                                                    \
+    }                                                                      \
+    return (target_type)value;                                             \
   }
 
 /* Declarations */
@@ -8666,8 +8668,9 @@ static CYTHON_INLINE int64_t __Pyx_PyInt_As_int64_t(PyObject* x) {
                       (((unsigned long)digits[1]) << PyLong_SHIFT) |
                       (unsigned long)digits[0])))
             } else if (8 * sizeof(int64_t) - 1 > 2 * PyLong_SHIFT) {
-              return (
-                  int64_t)(((int64_t)-1) * (((((int64_t)digits[1]) << PyLong_SHIFT) | (int64_t)digits[0])));
+              return (int64_t)(((int64_t)-1) *
+                               (((((int64_t)digits[1]) << PyLong_SHIFT) |
+                                 (int64_t)digits[0])));
             }
           }
           break;
@@ -8698,8 +8701,11 @@ static CYTHON_INLINE int64_t __Pyx_PyInt_As_int64_t(PyObject* x) {
                        << PyLong_SHIFT) |
                       (unsigned long)digits[0])))
             } else if (8 * sizeof(int64_t) - 1 > 3 * PyLong_SHIFT) {
-              return (
-                  int64_t)(((int64_t)-1) * (((((((int64_t)digits[2]) << PyLong_SHIFT) | (int64_t)digits[1]) << PyLong_SHIFT) | (int64_t)digits[0])));
+              return (int64_t)(((int64_t)-1) *
+                               (((((((int64_t)digits[2]) << PyLong_SHIFT) |
+                                   (int64_t)digits[1])
+                                  << PyLong_SHIFT) |
+                                 (int64_t)digits[0])));
             }
           }
           break;
@@ -8735,8 +8741,13 @@ static CYTHON_INLINE int64_t __Pyx_PyInt_As_int64_t(PyObject* x) {
                        << PyLong_SHIFT) |
                       (unsigned long)digits[0])))
             } else if (8 * sizeof(int64_t) - 1 > 4 * PyLong_SHIFT) {
-              return (
-                  int64_t)(((int64_t)-1) * (((((((((int64_t)digits[3]) << PyLong_SHIFT) | (int64_t)digits[2]) << PyLong_SHIFT) | (int64_t)digits[1]) << PyLong_SHIFT) | (int64_t)digits[0])));
+              return (int64_t)(((int64_t)-1) *
+                               (((((((((int64_t)digits[3]) << PyLong_SHIFT) |
+                                     (int64_t)digits[2])
+                                    << PyLong_SHIFT) |
+                                   (int64_t)digits[1])
+                                  << PyLong_SHIFT) |
+                                 (int64_t)digits[0])));
             }
           }
           break;
@@ -9027,8 +9038,9 @@ static CYTHON_INLINE int32_t __Pyx_PyInt_As_int32_t(PyObject* x) {
                       (((unsigned long)digits[1]) << PyLong_SHIFT) |
                       (unsigned long)digits[0])))
             } else if (8 * sizeof(int32_t) - 1 > 2 * PyLong_SHIFT) {
-              return (
-                  int32_t)(((int32_t)-1) * (((((int32_t)digits[1]) << PyLong_SHIFT) | (int32_t)digits[0])));
+              return (int32_t)(((int32_t)-1) *
+                               (((((int32_t)digits[1]) << PyLong_SHIFT) |
+                                 (int32_t)digits[0])));
             }
           }
           break;
@@ -9059,8 +9071,11 @@ static CYTHON_INLINE int32_t __Pyx_PyInt_As_int32_t(PyObject* x) {
                        << PyLong_SHIFT) |
                       (unsigned long)digits[0])))
             } else if (8 * sizeof(int32_t) - 1 > 3 * PyLong_SHIFT) {
-              return (
-                  int32_t)(((int32_t)-1) * (((((((int32_t)digits[2]) << PyLong_SHIFT) | (int32_t)digits[1]) << PyLong_SHIFT) | (int32_t)digits[0])));
+              return (int32_t)(((int32_t)-1) *
+                               (((((((int32_t)digits[2]) << PyLong_SHIFT) |
+                                   (int32_t)digits[1])
+                                  << PyLong_SHIFT) |
+                                 (int32_t)digits[0])));
             }
           }
           break;
@@ -9096,8 +9111,13 @@ static CYTHON_INLINE int32_t __Pyx_PyInt_As_int32_t(PyObject* x) {
                        << PyLong_SHIFT) |
                       (unsigned long)digits[0])))
             } else if (8 * sizeof(int32_t) - 1 > 4 * PyLong_SHIFT) {
-              return (
-                  int32_t)(((int32_t)-1) * (((((((((int32_t)digits[3]) << PyLong_SHIFT) | (int32_t)digits[2]) << PyLong_SHIFT) | (int32_t)digits[1]) << PyLong_SHIFT) | (int32_t)digits[0])));
+              return (int32_t)(((int32_t)-1) *
+                               (((((((((int32_t)digits[3]) << PyLong_SHIFT) |
+                                     (int32_t)digits[2])
+                                    << PyLong_SHIFT) |
+                                   (int32_t)digits[1])
+                                  << PyLong_SHIFT) |
+                                 (int32_t)digits[0])));
             }
           }
           break;
@@ -9349,8 +9369,9 @@ static CYTHON_INLINE long __Pyx_PyInt_As_long(PyObject* x) {
                       (((unsigned long)digits[1]) << PyLong_SHIFT) |
                       (unsigned long)digits[0])))
             } else if (8 * sizeof(long) - 1 > 2 * PyLong_SHIFT) {
-              return (
-                  long)(((long)-1) * (((((long)digits[1]) << PyLong_SHIFT) | (long)digits[0])));
+              return (long)(((long)-1) *
+                            (((((long)digits[1]) << PyLong_SHIFT) |
+                              (long)digits[0])));
             }
           }
           break;
@@ -9380,8 +9401,11 @@ static CYTHON_INLINE long __Pyx_PyInt_As_long(PyObject* x) {
                        << PyLong_SHIFT) |
                       (unsigned long)digits[0])))
             } else if (8 * sizeof(long) - 1 > 3 * PyLong_SHIFT) {
-              return (
-                  long)(((long)-1) * (((((((long)digits[2]) << PyLong_SHIFT) | (long)digits[1]) << PyLong_SHIFT) | (long)digits[0])));
+              return (long)(((long)-1) *
+                            (((((((long)digits[2]) << PyLong_SHIFT) |
+                                (long)digits[1])
+                               << PyLong_SHIFT) |
+                              (long)digits[0])));
             }
           }
           break;
@@ -9417,8 +9441,13 @@ static CYTHON_INLINE long __Pyx_PyInt_As_long(PyObject* x) {
                        << PyLong_SHIFT) |
                       (unsigned long)digits[0])))
             } else if (8 * sizeof(long) - 1 > 4 * PyLong_SHIFT) {
-              return (
-                  long)(((long)-1) * (((((((((long)digits[3]) << PyLong_SHIFT) | (long)digits[2]) << PyLong_SHIFT) | (long)digits[1]) << PyLong_SHIFT) | (long)digits[0])));
+              return (long)(((long)-1) *
+                            (((((((((long)digits[3]) << PyLong_SHIFT) |
+                                  (long)digits[2])
+                                 << PyLong_SHIFT) |
+                                (long)digits[1])
+                               << PyLong_SHIFT) |
+                              (long)digits[0])));
             }
           }
           break;
@@ -9631,7 +9660,8 @@ static CYTHON_INLINE int __Pyx_PyInt_As_int(PyObject* x) {
                       (unsigned long)digits[0])))
             } else if (8 * sizeof(int) - 1 > 2 * PyLong_SHIFT) {
               return (
-                  int)(((int)-1) * (((((int)digits[1]) << PyLong_SHIFT) | (int)digits[0])));
+                  int)(((int)-1) *
+                       (((((int)digits[1]) << PyLong_SHIFT) | (int)digits[0])));
             }
           }
           break;
@@ -9662,7 +9692,10 @@ static CYTHON_INLINE int __Pyx_PyInt_As_int(PyObject* x) {
                       (unsigned long)digits[0])))
             } else if (8 * sizeof(int) - 1 > 3 * PyLong_SHIFT) {
               return (
-                  int)(((int)-1) * (((((((int)digits[2]) << PyLong_SHIFT) | (int)digits[1]) << PyLong_SHIFT) | (int)digits[0])));
+                  int)(((int)-1) *
+                       (((((((int)digits[2]) << PyLong_SHIFT) | (int)digits[1])
+                          << PyLong_SHIFT) |
+                         (int)digits[0])));
             }
           }
           break;
@@ -9698,8 +9731,13 @@ static CYTHON_INLINE int __Pyx_PyInt_As_int(PyObject* x) {
                        << PyLong_SHIFT) |
                       (unsigned long)digits[0])))
             } else if (8 * sizeof(int) - 1 > 4 * PyLong_SHIFT) {
-              return (
-                  int)(((int)-1) * (((((((((int)digits[3]) << PyLong_SHIFT) | (int)digits[2]) << PyLong_SHIFT) | (int)digits[1]) << PyLong_SHIFT) | (int)digits[0])));
+              return (int)(((int)-1) *
+                           (((((((((int)digits[3]) << PyLong_SHIFT) |
+                                 (int)digits[2])
+                                << PyLong_SHIFT) |
+                               (int)digits[1])
+                              << PyLong_SHIFT) |
+                             (int)digits[0])));
             }
           }
           break;
