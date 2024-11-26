@@ -29,7 +29,6 @@ def get_version():
 
 
 def make_cuda_ext(name, module, sources, sources_cuda=[]):
-
     define_macros = []
     extra_compile_args = {"cxx": []}
 

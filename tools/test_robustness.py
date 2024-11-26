@@ -383,9 +383,9 @@ def main():
                                 mean_ap, eval_results = voc_eval_with_return(
                                     args.out, test_dataset, args.iou_thr, logger
                                 )
-                                aggregated_results[corruption][
-                                    corruption_severity
-                                ] = eval_results
+                                aggregated_results[corruption][corruption_severity] = (
+                                    eval_results
+                                )
                             else:
                                 print(
                                     '\nOnly "bbox" evaluation \
@@ -411,9 +411,9 @@ def main():
                         eval_results = coco_eval_with_return(
                             result_files, eval_types, dataset.coco
                         )
-                        aggregated_results[corruption][
-                            corruption_severity
-                        ] = eval_results
+                        aggregated_results[corruption][corruption_severity] = (
+                            eval_results
+                        )
                     else:
                         print(
                             "\nNo task was selected for evaluation;"

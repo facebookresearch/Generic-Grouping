@@ -126,7 +126,6 @@ def _context_for_ohem():
 
 
 def test_ohem_sampler():
-
     assigner = MaxIoUAssigner(
         pos_iou_thr=0.5,
         neg_iou_thr=0.5,
@@ -177,7 +176,6 @@ def test_ohem_sampler():
 
 
 def test_ohem_sampler_empty_gt():
-
     assigner = MaxIoUAssigner(
         pos_iou_thr=0.5,
         neg_iou_thr=0.5,

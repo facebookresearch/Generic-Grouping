@@ -38,7 +38,6 @@ except AssertionError:
 
 @DATASETS.register_module()
 class CocoDataset(CustomDataset):
-
     CLASSES = (
         "person",
         "bicycle",

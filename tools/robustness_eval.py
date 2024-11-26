@@ -39,7 +39,6 @@ def print_coco_results(results):
 def get_coco_style_results(
     filename, task="bbox", metric=None, prints="mPC", aggregate="benchmark"
 ):
-
     assert aggregate in ["benchmark", "all"]
 
     if prints == "all":
@@ -132,7 +131,6 @@ def get_coco_style_results(
 
 
 def get_voc_style_results(filename, prints="mPC", aggregate="benchmark"):
-
     assert aggregate in ["benchmark", "all"]
 
     if prints == "all":
@@ -205,7 +203,6 @@ def get_results(
 
 
 def get_distortions_from_file(filename):
-
     eval_output = mmcv.load(filename)
 
     return get_distortions_from_results(eval_output)

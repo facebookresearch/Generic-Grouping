@@ -38,7 +38,6 @@ class MaskRCNNDetector:
     def __init__(
         self, model_config, checkpoint=None, streamqueue_size=3, device="cuda:0"
     ):
-
         self.streamqueue_size = streamqueue_size
         self.device = device
         # build the model and load checkpoint
@@ -62,7 +61,6 @@ class MaskRCNNDetector:
 
 
 class AsyncInferenceTestCase(AsyncTestCase):
-
     if sys.version_info >= (3, 7):
 
         async def test_simple_inference(self):

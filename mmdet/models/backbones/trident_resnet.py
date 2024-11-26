@@ -118,7 +118,6 @@ class TridentBottleneck(Bottleneck):
     """
 
     def __init__(self, trident_dilations, test_branch_idx, concat_output, **kwargs):
-
         super(TridentBottleneck, self).__init__(**kwargs)
         self.trident_dilations = trident_dilations
         self.num_branch = len(trident_dilations)
@@ -264,7 +263,6 @@ class TridentResNet(ResNet):
     """  # noqa
 
     def __init__(self, depth, num_branch, test_branch_idx, trident_dilations, **kwargs):
-
         assert num_branch == len(trident_dilations)
         assert depth in (50, 101, 152)
         super(TridentResNet, self).__init__(depth, **kwargs)

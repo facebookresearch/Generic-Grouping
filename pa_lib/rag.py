@@ -126,7 +126,6 @@ class RAG(nx.Graph):
     """
 
     def __init__(self, label_image=None, connectivity=1, data=None, **attr):
-
         super(RAG, self).__init__(data, **attr)
         if self.number_of_nodes() == 0:
             self.max_id = 0

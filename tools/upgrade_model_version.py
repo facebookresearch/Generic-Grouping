@@ -75,7 +75,6 @@ def reorder_cls_channel(val, num_classes=81):
 
 
 def truncate_cls_channel(val, num_classes=81):
-
     # bias
     if val.dim() == 1:
         if val.size(0) % num_classes == 0:

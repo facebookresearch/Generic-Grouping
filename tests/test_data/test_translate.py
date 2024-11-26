@@ -414,9 +414,10 @@ def test_translate():
                 data, data_translated = data.to_ndarray(), data_translated.to_ndarray()
             assert data.dtype == data_translated.dtype
             if "img" in key:
-                data, data_translated = data.transpose(
-                    (2, 0, 1)
-                ), data_translated.transpose((2, 0, 1))
+                data, data_translated = (
+                    data.transpose((2, 0, 1)),
+                    data_translated.transpose((2, 0, 1)),
+                )
             elif "seg" in key:
                 data, data_translated = data[None, :, :], data_translated[None, :, :]
             c, h, w = data.shape

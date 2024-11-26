@@ -1390,7 +1390,6 @@ class Albu:
 
             # filter label_fields
             if self.filter_lost_elements:
-
                 for label in self.origin_label_fields:
                     results[label] = np.array(
                         [results[label][i] for i in results["idx_mapper"]]
@@ -1811,7 +1810,6 @@ class CutOut:
     def __init__(
         self, n_holes, cutout_shape=None, cutout_ratio=None, fill_in=(0, 0, 0)
     ):
-
         assert (cutout_shape is None) ^ (
             cutout_ratio is None
         ), "Either cutout_shape or cutout_ratio should be specified."

@@ -24,7 +24,6 @@ if sys.version_info >= (3, 7):
 
 
 class BBoxTestMixin:
-
     if sys.version_info >= (3, 7):
 
         async def async_test_bboxes(
@@ -149,7 +148,6 @@ class BBoxTestMixin:
 
 
 class MaskTestMixin:
-
     if sys.version_info >= (3, 7):
 
         async def async_test_mask(

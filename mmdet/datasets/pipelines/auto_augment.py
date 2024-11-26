@@ -487,17 +487,21 @@ class Rotate:
             coordinates = coordinates.transpose((2, 0, 1, 3))  # [nb_bbox, 4, 3, 1]
             rotated_coords = np.matmul(rotate_matrix, coordinates)  # [nb_bbox, 4, 2, 1]
             rotated_coords = rotated_coords[..., 0]  # [nb_bbox, 4, 2]
-            min_x, min_y = np.min(rotated_coords[:, :, 0], axis=1), np.min(
-                rotated_coords[:, :, 1], axis=1
+            min_x, min_y = (
+                np.min(rotated_coords[:, :, 0], axis=1),
+                np.min(rotated_coords[:, :, 1], axis=1),
             )
-            max_x, max_y = np.max(rotated_coords[:, :, 0], axis=1), np.max(
-                rotated_coords[:, :, 1], axis=1
+            max_x, max_y = (
+                np.max(rotated_coords[:, :, 0], axis=1),
+                np.max(rotated_coords[:, :, 1], axis=1),
             )
-            min_x, min_y = np.clip(min_x, a_min=0, a_max=w), np.clip(
-                min_y, a_min=0, a_max=h
+            min_x, min_y = (
+                np.clip(min_x, a_min=0, a_max=w),
+                np.clip(min_y, a_min=0, a_max=h),
             )
-            max_x, max_y = np.clip(max_x, a_min=min_x, a_max=w), np.clip(
-                max_y, a_min=min_y, a_max=h
+            max_x, max_y = (
+                np.clip(max_x, a_min=min_x, a_max=w),
+                np.clip(max_y, a_min=min_y, a_max=h),
             )
             results[key] = np.stack([min_x, min_y, max_x, max_y], axis=-1).astype(
                 results[key].dtype

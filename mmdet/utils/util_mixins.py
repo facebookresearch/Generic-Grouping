@@ -42,6 +42,7 @@ Example:
     >>> print(f'g = {g}')
     g = <Group(3)>
 """
+
 import warnings
 
 

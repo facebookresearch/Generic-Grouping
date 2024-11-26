@@ -11,6 +11,7 @@ CommandLine:
     pytest tests/test_assigner.py
     xdoctest tests/test_assigner.py zero
 """
+
 import torch
 from mmdet.core.bbox.assigners import (
     ApproxMaxIoUAssigner,

@@ -81,7 +81,6 @@ def main():
 
     # benchmark with 2000 image and take the average
     for i, data in enumerate(data_loader):
-
         torch.cuda.synchronize()
         start_time = time.perf_counter()
 

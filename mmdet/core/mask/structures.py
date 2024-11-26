@@ -775,9 +775,7 @@ class PolygonMasks(BaseInstanceMasks):
                     )  # [n, 3]
                     rotated_coords = np.matmul(
                         rotate_matrix[None, :, :], coords[:, :, None]
-                    )[
-                        ..., 0
-                    ]  # [n, 2, 1] -> [n, 2]
+                    )[..., 0]  # [n, 2, 1] -> [n, 2]
                     rotated_coords[:, 0] = np.clip(
                         rotated_coords[:, 0], 0, out_shape[1]
                     )
