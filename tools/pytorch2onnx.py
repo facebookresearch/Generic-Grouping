@@ -61,6 +61,7 @@ def pytorch2onnx(
         do_constant_folding=True,
         verbose=show,
         opset_version=opset_version,
+        dynamo=False,
     )
 
     model.forward = orig_model.forward
