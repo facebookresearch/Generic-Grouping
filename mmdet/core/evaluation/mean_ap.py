@@ -358,7 +358,7 @@ def eval_map(
         # calculate gt number of each scale
         # ignored gts or gts beyond the specific scale are not counted
         num_gts = np.zeros(num_scales, dtype=int)
-        for j, bbox in enumerate(cls_gts):
+        for bbox in cls_gts:
             if area_ranges is None:
                 num_gts[0] += bbox.shape[0]
             else:
