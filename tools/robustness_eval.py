@@ -210,7 +210,7 @@ def get_distortions_from_file(filename):
 
 def get_distortions_from_results(eval_output):
     distortions = []
-    for i, distortion in enumerate(eval_output):
+    for distortion in eval_output:
         distortions.append(distortion.replace("_", " "))
     return distortions
 
