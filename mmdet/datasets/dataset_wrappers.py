@@ -99,7 +99,7 @@ class ConcatDataset(_ConcatDataset):
         if self.separate_eval:
             dataset_idx = -1
             total_eval_results = dict()
-            for size, dataset in zip(self.cumulative_sizes, self.datasets):
+            for _, dataset in zip(self.cumulative_sizes, self.datasets):
                 start_idx = (
                     0 if dataset_idx == -1 else self.cumulative_sizes[dataset_idx]
                 )
