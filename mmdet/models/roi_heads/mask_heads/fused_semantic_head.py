@@ -56,7 +56,7 @@ class FusedSemanticHead(nn.Module):
         self.fp16_enabled = False
 
         self.lateral_convs = nn.ModuleList()
-        for i in range(self.num_ins):
+        for _ in range(self.num_ins):
             self.lateral_convs.append(
                 ConvModule(
                     self.in_channels,
