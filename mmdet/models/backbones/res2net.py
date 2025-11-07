@@ -245,7 +245,7 @@ class Res2Layer(nn.Sequential):
             )
         )
         inplanes = planes * block.expansion
-        for i in range(1, num_blocks):
+        for _ in range(1, num_blocks):
             layers.append(
                 block(
                     inplanes=inplanes,
