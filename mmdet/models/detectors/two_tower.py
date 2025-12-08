@@ -110,7 +110,7 @@ class TwoTowerDetector(BaseDetector):
             if freeze_rpn_scoring or name not in RPN_SCORE_LAYERS:
                 param.requires_grad = False
         if freeze_backbone:
-            for name, param in self.rec_backbone.named_parameters():
+            for param in self.rec_backbone.parameters():
                 param.requires_grad = False
 
     def extract_feat(self, img):
