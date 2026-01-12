@@ -91,7 +91,7 @@ class AssignResult(util_mixins.NiceRepr):
         if self.max_overlaps is None:
             parts.append(f"max_overlaps={self.max_overlaps!r}")
         else:
-            parts.append("max_overlaps.shape=" f"{tuple(self.max_overlaps.shape)!r}")
+            parts.append(f"max_overlaps.shape={tuple(self.max_overlaps.shape)!r}")
         if self.labels is None:
             parts.append(f"labels={self.labels!r}")
         else:

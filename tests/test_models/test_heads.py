@@ -102,12 +102,12 @@ def test_paa_head_loss():
     empty_box_loss = empty_gt_losses["loss_bbox"]
     empty_iou_loss = empty_gt_losses["loss_iou"]
     assert empty_cls_loss.item() > 0, "cls loss should be non-zero"
-    assert (
-        empty_box_loss.item() == 0
-    ), "there should be no box loss when there are no true boxes"
-    assert (
-        empty_iou_loss.item() == 0
-    ), "there should be no box loss when there are no true boxes"
+    assert empty_box_loss.item() == 0, (
+        "there should be no box loss when there are no true boxes"
+    )
+    assert empty_iou_loss.item() == 0, (
+        "there should be no box loss when there are no true boxes"
+    )
 
     # When truth is non-empty then both cls and box loss should be nonzero for
     # random inputs
@@ -212,9 +212,9 @@ def test_fcos_head_loss():
     empty_cls_loss = empty_gt_losses["loss_cls"]
     empty_box_loss = empty_gt_losses["loss_bbox"]
     assert empty_cls_loss.item() > 0, "cls loss should be non-zero"
-    assert (
-        empty_box_loss.item() == 0
-    ), "there should be no box loss when there are no true boxes"
+    assert empty_box_loss.item() == 0, (
+        "there should be no box loss when there are no true boxes"
+    )
 
     # When truth is non-empty then both cls and box loss should be nonzero for
     # random inputs
@@ -282,9 +282,9 @@ def test_vfnet_head_loss():
         empty_cls_loss = empty_gt_losses["loss_cls"]
         empty_box_loss = empty_gt_losses["loss_bbox"]
         assert empty_cls_loss.item() > 0, "cls loss should be non-zero"
-        assert (
-            empty_box_loss.item() == 0
-        ), "there should be no box loss when there are no true boxes"
+        assert empty_box_loss.item() == 0, (
+            "there should be no box loss when there are no true boxes"
+        )
 
         # When truth is non-empty then both cls and box loss should be nonzero
         # for random inputs
@@ -356,9 +356,9 @@ def test_anchor_head_loss():
     empty_cls_loss = sum(empty_gt_losses["loss_cls"])
     empty_box_loss = sum(empty_gt_losses["loss_bbox"])
     assert empty_cls_loss.item() > 0, "cls loss should be non-zero"
-    assert (
-        empty_box_loss.item() == 0
-    ), "there should be no box loss when there are no true boxes"
+    assert empty_box_loss.item() == 0, (
+        "there should be no box loss when there are no true boxes"
+    )
 
     # When truth is non-empty then both cls and box loss should be nonzero for
     # random inputs
@@ -451,9 +451,9 @@ def test_fsaf_head_loss():
         empty_cls_loss = sum(empty_gt_losses["loss_cls"])
         empty_box_loss = sum(empty_gt_losses["loss_bbox"])
         assert empty_cls_loss.item() > 0, "cls loss should be non-zero"
-        assert (
-            empty_box_loss.item() == 0
-        ), "there should be no box loss when there are no true boxes"
+        assert empty_box_loss.item() == 0, (
+            "there should be no box loss when there are no true boxes"
+        )
 
 
 def test_ga_anchor_head_loss():
@@ -533,9 +533,9 @@ def test_ga_anchor_head_loss():
         empty_cls_loss = sum(empty_gt_losses["loss_cls"])
         empty_box_loss = sum(empty_gt_losses["loss_bbox"])
         assert empty_cls_loss.item() > 0, "cls loss should be non-zero"
-        assert (
-            empty_box_loss.item() == 0
-        ), "there should be no box loss when there are no true boxes"
+        assert empty_box_loss.item() == 0, (
+            "there should be no box loss when there are no true boxes"
+        )
 
         # When truth is non-empty then both cls and box loss should be nonzero
         # for random inputs
@@ -730,12 +730,12 @@ def test_sabl_retina_head_loss():
         empty_box_cls_loss = sum(empty_gt_losses["loss_bbox_cls"])
         empty_box_reg_loss = sum(empty_gt_losses["loss_bbox_reg"])
         assert empty_cls_loss.item() > 0, "cls loss should be non-zero"
-        assert (
-            empty_box_cls_loss.item() == 0
-        ), "there should be no box cls loss when there are no true boxes"
-        assert (
-            empty_box_reg_loss.item() == 0
-        ), "there should be no box reg loss when there are no true boxes"
+        assert empty_box_cls_loss.item() == 0, (
+            "there should be no box cls loss when there are no true boxes"
+        )
+        assert empty_box_reg_loss.item() == 0, (
+            "there should be no box reg loss when there are no true boxes"
+        )
 
         # When truth is non-empty then both cls and box loss should
         # be nonzero for random inputs
@@ -975,15 +975,15 @@ def test_corner_head_loss():
     empty_pull_loss = sum(empty_gt_losses["pull_loss"])
     empty_off_loss = sum(empty_gt_losses["off_loss"])
     assert empty_det_loss.item() > 0, "det loss should be non-zero"
-    assert (
-        empty_push_loss.item() == 0
-    ), "there should be no push loss when there are no true boxes"
-    assert (
-        empty_pull_loss.item() == 0
-    ), "there should be no pull loss when there are no true boxes"
-    assert (
-        empty_off_loss.item() == 0
-    ), "there should be no box loss when there are no true boxes"
+    assert empty_push_loss.item() == 0, (
+        "there should be no push loss when there are no true boxes"
+    )
+    assert empty_pull_loss.item() == 0, (
+        "there should be no pull loss when there are no true boxes"
+    )
+    assert empty_off_loss.item() == 0, (
+        "there should be no box loss when there are no true boxes"
+    )
 
     # When truth is non-empty then both cls and box loss should be nonzero for
     # random inputs
@@ -1008,9 +1008,9 @@ def test_corner_head_loss():
     onegt_pull_loss = sum(one_gt_losses["pull_loss"])
     onegt_off_loss = sum(one_gt_losses["off_loss"])
     assert onegt_det_loss.item() > 0, "det loss should be non-zero"
-    assert (
-        onegt_push_loss.item() == 0
-    ), "there should be no push loss when there are only one true box"
+    assert onegt_push_loss.item() == 0, (
+        "there should be no push loss when there are only one true box"
+    )
     assert onegt_pull_loss.item() > 0, "pull loss should be non-zero"
     assert onegt_off_loss.item() > 0, "off loss should be non-zero"
 
@@ -1218,9 +1218,9 @@ def test_yolact_head_loss():
     empty_cls_loss = sum(empty_gt_losses["loss_cls"])
     empty_box_loss = sum(empty_gt_losses["loss_bbox"])
     assert empty_cls_loss.item() > 0, "cls loss should be non-zero"
-    assert (
-        empty_box_loss.item() == 0
-    ), "there should be no box loss when there are no true boxes"
+    assert empty_box_loss.item() == 0, (
+        "there should be no box loss when there are no true boxes"
+    )
 
     # Test segm head and mask head
     segm_head_outs = segm_head(feat[0])
@@ -1232,12 +1232,12 @@ def test_yolact_head_loss():
     # When there is no truth, the segm and mask loss should be zero.
     empty_segm_loss = sum(empty_segm_loss["loss_segm"])
     empty_mask_loss = sum(empty_mask_loss["loss_mask"])
-    assert (
-        empty_segm_loss.item() == 0
-    ), "there should be no segm loss when there are no true boxes"
-    assert (
-        empty_mask_loss == 0
-    ), "there should be no mask loss when there are no true boxes"
+    assert empty_segm_loss.item() == 0, (
+        "there should be no segm loss when there are no true boxes"
+    )
+    assert empty_mask_loss == 0, (
+        "there should be no mask loss when there are no true boxes"
+    )
 
     # When truth is non-empty then cls, box, mask, segm loss should be
     # nonzero for random inputs.
@@ -1334,13 +1334,13 @@ def test_transformer_head_loss():
         if "cls" in key:
             assert loss.item() > 0, "cls loss should be non-zero"
         elif "bbox" in key:
-            assert (
-                loss.item() == 0
-            ), "there should be no box loss when there are no true boxes"
+            assert loss.item() == 0, (
+                "there should be no box loss when there are no true boxes"
+            )
         elif "iou" in key:
-            assert (
-                loss.item() == 0
-            ), "there should be no iou loss when there are no true boxes"
+            assert loss.item() == 0, (
+                "there should be no iou loss when there are no true boxes"
+            )
 
     # When truth is non-empty then both cls and box loss should be nonzero for
     # random inputs

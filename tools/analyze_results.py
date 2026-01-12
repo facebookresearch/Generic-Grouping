@@ -160,7 +160,7 @@ def parse_args():
         "--topk",
         default=20,
         type=int,
-        help="saved Number of the highest topk " "and lowest topk after index sorting",
+        help="saved Number of the highest topk and lowest topk after index sorting",
     )
     parser.add_argument(
         "--cfg-options",

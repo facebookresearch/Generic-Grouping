@@ -88,16 +88,16 @@ class AutoAugment:
     """
 
     def __init__(self, policies):
-        assert (
-            isinstance(policies, list) and len(policies) > 0
-        ), "Policies must be a non-empty list."
+        assert isinstance(policies, list) and len(policies) > 0, (
+            "Policies must be a non-empty list."
+        )
         for policy in policies:
-            assert (
-                isinstance(policy, list) and len(policy) > 0
-            ), "Each policy in policies must be a non-empty list."
+            assert isinstance(policy, list) and len(policy) > 0, (
+                "Each policy in policies must be a non-empty list."
+            )
             for augment in policy:
                 assert isinstance(augment, dict) and "type" in augment, (
-                    "Each specific augmentation must be a dict with key" ' "type".'
+                    'Each specific augmentation must be a dict with key "type".'
                 )
 
         self.policies = copy.deepcopy(policies)
@@ -147,17 +147,16 @@ class Shear:
         interpolation="bilinear",
     ):
         assert isinstance(level, (int, float)), (
-            "The level must be type " f"int or float, got {type(level)}."
+            f"The level must be type int or float, got {type(level)}."
         )
         assert 0 <= level <= _MAX_LEVEL, (
-            "The level should be in range " f"[0,{_MAX_LEVEL}], got {level}."
+            f"The level should be in range [0,{_MAX_LEVEL}], got {level}."
         )
         if isinstance(img_fill_val, (float, int)):
             img_fill_val = tuple([float(img_fill_val)] * 3)
         elif isinstance(img_fill_val, tuple):
             assert len(img_fill_val) == 3, (
-                "img_fill_val as tuple must "
-                f"have 3 elements. got {len(img_fill_val)}."
+                f"img_fill_val as tuple must have 3 elements. got {len(img_fill_val)}."
             )
             img_fill_val = tuple([float(val) for val in img_fill_val])
         else:
@@ -168,11 +167,10 @@ class Shear:
             f"got {img_fill_val}."
         )
         assert 0 <= prob <= 1.0, (
-            "The probability of shear should be in " f"range [0,1]. got {prob}."
+            f"The probability of shear should be in range [0,1]. got {prob}."
         )
         assert direction in ("horizontal", "vertical"), (
-            "direction must "
-            f'in be either "horizontal" or "vertical". got {direction}.'
+            f'direction must in be either "horizontal" or "vertical". got {direction}.'
         )
         assert isinstance(max_shear_magnitude, float), (
             "max_shear_magnitude "
@@ -392,15 +390,15 @@ class Rotate:
         max_rotate_angle=30,
         random_negative_prob=0.5,
     ):
-        assert isinstance(
-            level, (int, float)
-        ), f"The level must be type int or float. got {type(level)}."
-        assert (
-            0 <= level <= _MAX_LEVEL
-        ), f"The level should be in range (0,{_MAX_LEVEL}]. got {level}."
-        assert isinstance(
-            scale, (int, float)
-        ), f"The scale must be type int or float. got type {type(scale)}."
+        assert isinstance(level, (int, float)), (
+            f"The level must be type int or float. got {type(level)}."
+        )
+        assert 0 <= level <= _MAX_LEVEL, (
+            f"The level should be in range (0,{_MAX_LEVEL}]. got {level}."
+        )
+        assert isinstance(scale, (int, float)), (
+            f"The scale must be type int or float. got type {type(scale)}."
+        )
         if isinstance(center, (int, float)):
             center = (center, center)
         elif isinstance(center, tuple):
@@ -417,8 +415,7 @@ class Rotate:
             img_fill_val = tuple([float(img_fill_val)] * 3)
         elif isinstance(img_fill_val, tuple):
             assert len(img_fill_val) == 3, (
-                "img_fill_val as tuple must "
-                f"have 3 elements. got {len(img_fill_val)}."
+                f"img_fill_val as tuple must have 3 elements. got {len(img_fill_val)}."
             )
             img_fill_val = tuple([float(val) for val in img_fill_val])
         else:
@@ -427,9 +424,7 @@ class Rotate:
             "all elements of img_fill_val should between range [0,255]. "
             f"got {img_fill_val}."
         )
-        assert 0 <= prob <= 1.0, (
-            "The probability should be in range [0,1]. " "got {prob}."
-        )
+        assert 0 <= prob <= 1.0, "The probability should be in range [0,1]. got {prob}."
         assert isinstance(max_rotate_angle, (int, float)), (
             "max_rotate_angle "
             f"should be type int or float. got type {type(max_rotate_angle)}."
@@ -624,9 +619,9 @@ class Translate:
             "The level used for calculating Translate's offset should be "
             "in range [0,_MAX_LEVEL]"
         )
-        assert (
-            0 <= prob <= 1.0
-        ), "The probability of translation should be in range [0, 1]."
+        assert 0 <= prob <= 1.0, (
+            "The probability of translation should be in range [0, 1]."
+        )
         if isinstance(img_fill_val, (float, int)):
             img_fill_val = tuple([float(img_fill_val)] * 3)
         elif isinstance(img_fill_val, tuple):
@@ -634,16 +629,16 @@ class Translate:
             img_fill_val = tuple([float(val) for val in img_fill_val])
         else:
             raise ValueError("img_fill_val must be type float or tuple.")
-        assert np.all(
-            [0 <= val <= 255 for val in img_fill_val]
-        ), "all elements of img_fill_val should between range [0,255]."
+        assert np.all([0 <= val <= 255 for val in img_fill_val]), (
+            "all elements of img_fill_val should between range [0,255]."
+        )
         assert direction in (
             "horizontal",
             "vertical",
         ), 'direction should be "horizontal" or "vertical".'
-        assert isinstance(
-            max_translate_offset, (int, float)
-        ), "The max_translate_offset must be type int or float."
+        assert isinstance(max_translate_offset, (int, float)), (
+            "The max_translate_offset must be type int or float."
+        )
         # the offset used for translation
         self.offset = int(level_to_value(level, max_translate_offset))
         self.level = level

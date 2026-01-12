@@ -308,9 +308,9 @@ class Resize:
                 self._random_scale(results)
         else:
             if not self.override:
-                assert (
-                    "scale_factor" not in results
-                ), "scale and scale_factor cannot be both set."
+                assert "scale_factor" not in results, (
+                    "scale and scale_factor cannot be both set."
+                )
             else:
                 results.pop("scale")
                 if "scale_factor" in results:
@@ -380,7 +380,7 @@ class RandomFlip:
         elif flip_ratio is None:
             pass
         else:
-            raise ValueError("flip_ratios must be None, float, " "or list of float")
+            raise ValueError("flip_ratios must be None, float, or list of float")
         self.flip_ratio = flip_ratio
 
         valid_directions = ["horizontal", "vertical", "diagonal"]
@@ -1534,9 +1534,9 @@ class RandomCenterCropPad:
             assert test_pad_mode[0] in ["logical_or", "size_divisor"]
         else:
             assert isinstance(crop_size, (list, tuple))
-            assert (
-                crop_size[0] > 0 and crop_size[1] > 0
-            ), "crop_size must > 0 in train mode"
+            assert crop_size[0] > 0 and crop_size[1] > 0, (
+                "crop_size must > 0 in train mode"
+            )
             assert isinstance(ratios, (list, tuple))
             assert test_pad_mode is None, "test_pad_mode must be None in train mode"
 
@@ -1810,9 +1810,9 @@ class CutOut:
     def __init__(
         self, n_holes, cutout_shape=None, cutout_ratio=None, fill_in=(0, 0, 0)
     ):
-        assert (cutout_shape is None) ^ (
-            cutout_ratio is None
-        ), "Either cutout_shape or cutout_ratio should be specified."
+        assert (cutout_shape is None) ^ (cutout_ratio is None), (
+            "Either cutout_shape or cutout_ratio should be specified."
+        )
         assert isinstance(cutout_shape, (list, tuple)) or isinstance(
             cutout_ratio, (list, tuple)
         )

@@ -64,7 +64,7 @@ class BBoxTestMixin:
         gbs_sig = signature(self._get_bboxes_single)
         gbs_args = [p.name for p in gbs_sig.parameters.values()]
         assert ("with_nms" in gb_args) and ("with_nms" in gbs_args), (
-            f"{self.__class__.__name__}" " does not support test-time augmentation"
+            f"{self.__class__.__name__} does not support test-time augmentation"
         )
 
         aug_bboxes = []

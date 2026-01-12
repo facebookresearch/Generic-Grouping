@@ -16,7 +16,7 @@ import seaborn as sns
 
 def cal_train_time(log_dicts, args):
     for i, log_dict in enumerate(log_dicts):
-        print(f'{"-" * 5}Analyze train time of {args.json_logs[i]}{"-" * 5}')
+        print(f"{'-' * 5}Analyze train time of {args.json_logs[i]}{'-' * 5}")
         all_times = []
         for epoch in log_dict.keys():
             if args.include_outliers:
@@ -130,8 +130,7 @@ def add_time_parser(subparsers):
     parser_time.add_argument(
         "--include-outliers",
         action="store_true",
-        help="include the first value of every epoch when computing "
-        "the average time",
+        help="include the first value of every epoch when computing the average time",
     )
 
 

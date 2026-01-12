@@ -59,7 +59,7 @@ def makeplot(rs, ps, outDir, class_name, iou_type):
 
 def analyze_individual_category(k, cocoDt, cocoGt, catId, iou_type):
     nm = cocoGt.loadCats(catId)[0]
-    print(f'--------------analyzing {k + 1}-{nm["name"]}---------------')
+    print(f"--------------analyzing {k + 1}-{nm['name']}---------------")
     ps_ = {}
     dt = copy.deepcopy(cocoDt)
     nm = cocoGt.loadCats(catId)[0]
@@ -143,7 +143,7 @@ def analyze_results(res_file, ann_file, res_types, out_dir):
             analyze_results = pool.starmap(analyze_individual_category, args)
         for k, catId in enumerate(catIds):
             nm = cocoGt.loadCats(catId)[0]
-            print(f'--------------saving {k + 1}-{nm["name"]}---------------')
+            print(f"--------------saving {k + 1}-{nm['name']}---------------")
             analyze_result = analyze_results[k]
             assert k == analyze_result[0]
             ps_supercategory = analyze_result[1]["ps_supercategory"]

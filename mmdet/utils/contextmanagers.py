@@ -60,9 +60,9 @@ async def completed(
 
         # observed change of torch.is_grad_enabled() during concurrent run of
         # async_test_bboxes code
-        assert (
-            grad_enabled_before == grad_enabled_after
-        ), "Unexpected is_grad_enabled() value change"
+        assert grad_enabled_before == grad_enabled_after, (
+            "Unexpected is_grad_enabled() value change"
+        )
 
         are_done = [e.query() for e in end_events]
         logger.debug(

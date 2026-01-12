@@ -336,7 +336,7 @@ def test_config_data_pipeline(config_rpath):
     assert output_results is not None
 
     # test empty GT
-    print("Test empty GT with training data pipeline: " f"\n{train_pipeline!r}")
+    print(f"Test empty GT with training data pipeline: \n{train_pipeline!r}")
     results = dict(
         filename="test_img.png",
         ori_filename="test_img.png",

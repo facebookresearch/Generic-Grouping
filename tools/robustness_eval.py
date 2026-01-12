@@ -164,9 +164,7 @@ def get_voc_style_results(filename, prints="mPC", aggregate="benchmark"):
     if "P" in prints:
         print(f"Performance on Clean Data [P] in AP50 = {np.mean(P):0.3f}")
     if "mPC" in prints:
-        print(
-            "Mean Performance under Corruption [mPC] in AP50 = " f"{np.mean(mPC):0.3f}"
-        )
+        print(f"Mean Performance under Corruption [mPC] in AP50 = {np.mean(mPC):0.3f}")
     if "rPC" in prints:
         print(
             "Realtive Performance under Corruption [rPC] in % = "

@@ -82,15 +82,15 @@ def imshow_det_bboxes(
     Returns:
         ndarray: The image with bboxes drawn on it.
     """
-    warnings.warn('"font_scale" will be deprecated in v2.9.0,' 'Please use "font_size"')
+    warnings.warn('"font_scale" will be deprecated in v2.9.0,Please use "font_size"')
     assert bboxes.ndim == 2, f" bboxes ndim should be 2, but its ndim is {bboxes.ndim}."
     assert labels.ndim == 1, f" labels ndim should be 1, but its ndim is {labels.ndim}."
-    assert (
-        bboxes.shape[0] == labels.shape[0]
-    ), "bboxes.shape[0] and labels.shape[0] should have the same length."
-    assert (
-        bboxes.shape[1] == 4 or bboxes.shape[1] == 5
-    ), f" bboxes.shape[1] should be 4 or 5, but its {bboxes.shape[1]}."
+    assert bboxes.shape[0] == labels.shape[0], (
+        "bboxes.shape[0] and labels.shape[0] should have the same length."
+    )
+    assert bboxes.shape[1] == 4 or bboxes.shape[1] == 5, (
+        f" bboxes.shape[1] should be 4 or 5, but its {bboxes.shape[1]}."
+    )
     img = mmcv.imread(img).copy()
 
     if score_thr > 0:
@@ -242,9 +242,9 @@ def imshow_gt_det_bboxes(
     """
     assert "gt_bboxes" in annotation
     assert "gt_labels" in annotation
-    assert isinstance(
-        result, (tuple, list)
-    ), f"Expected tuple or list, but get {type(result)}"
+    assert isinstance(result, (tuple, list)), (
+        f"Expected tuple or list, but get {type(result)}"
+    )
 
     gt_masks = annotation.get("gt_masks", None)
     if gt_masks is not None:

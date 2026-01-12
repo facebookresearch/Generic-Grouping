@@ -38,13 +38,13 @@ def parse_args():
     group_gpus.add_argument(
         "--gpus",
         type=int,
-        help="number of gpus to use " "(only applicable to non-distributed training)",
+        help="number of gpus to use (only applicable to non-distributed training)",
     )
     group_gpus.add_argument(
         "--gpu-ids",
         type=int,
         nargs="+",
-        help="ids of gpus to use " "(only applicable to non-distributed training)",
+        help="ids of gpus to use (only applicable to non-distributed training)",
     )
     parser.add_argument("--seed", type=int, default=None, help="random seed")
     parser.add_argument(
@@ -163,7 +163,7 @@ def main():
     # set random seeds
     if args.seed is not None:
         logger.info(
-            f"Set random seed to {args.seed}, " f"deterministic: {args.deterministic}"
+            f"Set random seed to {args.seed}, deterministic: {args.deterministic}"
         )
         set_random_seed(args.seed, deterministic=args.deterministic)
     cfg.seed = args.seed

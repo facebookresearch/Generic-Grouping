@@ -234,9 +234,7 @@ def test_transformer_encoder_layer(
     def test_order():
         module = TransformerEncoderLayer(embed_dims, num_heads, feedforward_channels)
         out = module("input")
-        assert (
-            out == "input_selfattn(residual=input)_norm0_ffn" "(residual=norm0)_norm1"
-        )
+        assert out == "input_selfattn(residual=input)_norm0_ffn(residual=norm0)_norm1"
 
         # pre_norm
         order = ("norm", "selfattn", "norm", "ffn")
@@ -245,8 +243,7 @@ def test_transformer_encoder_layer(
         )
         out = module("input")
         assert (
-            out == "input_norm0_selfattn(residual=input)_"
-            "norm1_ffn(residual=selfattn)"
+            out == "input_norm0_selfattn(residual=input)_norm1_ffn(residual=selfattn)"
         )
 
     test_order()

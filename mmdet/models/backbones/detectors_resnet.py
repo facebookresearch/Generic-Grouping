@@ -151,7 +151,7 @@ class ResLayer(nn.Sequential):
     ):
         self.block = block
         assert downsample_first, (
-            f"downsampel_first={downsample_first} is " "not supported in DetectoRS"
+            f"downsampel_first={downsample_first} is not supported in DetectoRS"
         )
 
         downsample = None

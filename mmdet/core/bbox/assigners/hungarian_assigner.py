@@ -101,9 +101,9 @@ class HungarianAssigner(BaseAssigner):
         Returns:
             :obj:`AssignResult`: The assigned result.
         """
-        assert (
-            gt_bboxes_ignore is None
-        ), "Only case when gt_bboxes_ignore is None is supported."
+        assert gt_bboxes_ignore is None, (
+            "Only case when gt_bboxes_ignore is None is supported."
+        )
         num_gts, num_bboxes = gt_bboxes.size(0), bbox_pred.size(0)
 
         # 1. assign -1 by default
@@ -135,9 +135,7 @@ class HungarianAssigner(BaseAssigner):
         # 3. do Hungarian matching on CPU using linear_sum_assignment
         cost = cost.detach().cpu()
         if linear_sum_assignment is None:
-            raise ImportError(
-                'Please run "pip install scipy" ' "to install scipy first."
-            )
+            raise ImportError('Please run "pip install scipy" to install scipy first.')
         matched_row_inds, matched_col_inds = linear_sum_assignment(cost)
         matched_row_inds = torch.from_numpy(matched_row_inds).to(bbox_pred.device)
         matched_col_inds = torch.from_numpy(matched_col_inds).to(bbox_pred.device)

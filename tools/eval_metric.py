@@ -14,7 +14,7 @@ from mmdet.datasets import build_dataset
 
 def parse_args():
     parser = argparse.ArgumentParser(
-        description="Evaluate metric of the " "results saved in pkl format"
+        description="Evaluate metric of the results saved in pkl format"
     )
     parser.add_argument("config", help="Config of the model")
     parser.add_argument("pkl_results", help="Results in pickle format")

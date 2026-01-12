@@ -48,7 +48,7 @@ class FCNMaskHead(nn.Module):
             "carafe",
         ]:
             raise ValueError(
-                f'Invalid upsample method {self.upsample_cfg["type"]}, '
+                f"Invalid upsample method {self.upsample_cfg['type']}, "
                 'accepted methods are "deconv", "nearest", "bilinear", '
                 '"carafe"'
             )
@@ -242,9 +242,9 @@ class FCNMaskHead(nn.Module):
             num_chunks = int(
                 np.ceil(N * img_h * img_w * BYTES_PER_FLOAT / GPU_MEM_LIMIT)
             )
-            assert (
-                num_chunks <= N
-            ), "Default GPU_MEM_LIMIT is too small; try increasing it"
+            assert num_chunks <= N, (
+                "Default GPU_MEM_LIMIT is too small; try increasing it"
+            )
         chunks = torch.chunk(torch.arange(N, device=device), num_chunks)
 
         threshold = rcnn_test_cfg.mask_thr_binary

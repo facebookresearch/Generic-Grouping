@@ -62,9 +62,9 @@ def test_pisa_retinanet_head_loss():
     empty_cls_loss = empty_gt_losses["loss_cls"].sum()
     empty_box_loss = empty_gt_losses["loss_bbox"].sum()
     assert empty_cls_loss.item() > 0, "cls loss should be non-zero"
-    assert (
-        empty_box_loss.item() == 0
-    ), "there should be no box loss when there are no true boxes"
+    assert empty_box_loss.item() == 0, (
+        "there should be no box loss when there are no true boxes"
+    )
 
     # When truth is non-empty then both cls and box loss should be nonzero for
     # random inputs
@@ -141,9 +141,9 @@ def test_pisa_ssd_head_loss():
     empty_box_loss = sum(empty_gt_losses["loss_bbox"])
     # SSD is special, #pos:#neg = 1: 3, so empth gt will also lead loss cls = 0
     assert empty_cls_loss.item() == 0, "cls loss should be non-zero"
-    assert (
-        empty_box_loss.item() == 0
-    ), "there should be no box loss when there are no true boxes"
+    assert empty_box_loss.item() == 0, (
+        "there should be no box loss when there are no true boxes"
+    )
 
     # When truth is non-empty then both cls and box loss should be nonzero for
     # random inputs
@@ -240,9 +240,9 @@ def test_pisa_roi_head_loss():
     empty_cls_loss = empty_gt_losses["loss_cls"].sum()
     empty_box_loss = empty_gt_losses["loss_bbox"].sum()
     assert empty_cls_loss.item() > 0, "cls loss should be non-zero"
-    assert (
-        empty_box_loss.item() == 0
-    ), "there should be no box loss when there are no true boxes"
+    assert empty_box_loss.item() == 0, (
+        "there should be no box loss when there are no true boxes"
+    )
 
     # When truth is non-empty then both cls and box loss should be nonzero for
     # random inputs

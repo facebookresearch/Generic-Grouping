@@ -77,11 +77,11 @@ class AnchorGenerator:
         # check center and center_offset
         if center_offset != 0:
             assert centers is None, (
-                "center cannot be set when center_offset" f"!=0, {centers} is given."
+                f"center cannot be set when center_offset!=0, {centers} is given."
             )
         if not (0 <= center_offset <= 1):
             raise ValueError(
-                "center_offset should be in range [0, 1], " f"{center_offset} is given."
+                f"center_offset should be in range [0, 1], {center_offset} is given."
             )
         if centers is not None:
             assert len(centers) == len(strides), (
@@ -431,8 +431,7 @@ class SSDAnchorGenerator(AnchorGenerator):
                 )
         else:
             raise ValueError(
-                "Only support 300 or 512 in SSDAnchorGenerator"
-                f", got {self.input_size}."
+                f"Only support 300 or 512 in SSDAnchorGenerator, got {self.input_size}."
             )
 
         anchor_ratios = []

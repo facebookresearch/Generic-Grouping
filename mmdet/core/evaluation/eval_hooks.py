@@ -61,15 +61,13 @@ class EvalHook(Hook):
     ):
         if not isinstance(dataloader, DataLoader):
             raise TypeError(
-                "dataloader must be a pytorch DataLoader, but got"
-                f" {type(dataloader)}"
+                f"dataloader must be a pytorch DataLoader, but got {type(dataloader)}"
             )
         if not interval > 0:
             raise ValueError(f"interval must be positive, but got {interval}")
         if start is not None and start < 0:
             warnings.warn(
-                f"The evaluation start epoch {start} is smaller than 0, "
-                f"use 0 instead",
+                f"The evaluation start epoch {start} is smaller than 0, use 0 instead",
                 UserWarning,
             )
             start = 0
@@ -95,7 +93,7 @@ class EvalHook(Hook):
                 comparison rule.
         """
         if rule not in self.rule_map and rule is not None:
-            raise KeyError(f"rule must be greater, less or None, " f"but got {rule}.")
+            raise KeyError(f"rule must be greater, less or None, but got {rule}.")
 
         if rule is None:
             if key_indicator != "auto":

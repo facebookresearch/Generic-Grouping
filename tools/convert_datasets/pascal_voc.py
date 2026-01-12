@@ -77,7 +77,7 @@ def cvt_annotations(devkit_path, years, split, out_file):
     for year in years:
         filelist = osp.join(devkit_path, f"VOC{year}/ImageSets/Main/{split}.txt")
         if not osp.isfile(filelist):
-            print(f"filelist does not exist: {filelist}, " f"skip voc{year} {split}")
+            print(f"filelist does not exist: {filelist}, skip voc{year} {split}")
             return
         img_names = mmcv.list_from_file(filelist)
         xml_paths = [

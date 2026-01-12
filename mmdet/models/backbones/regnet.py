@@ -124,12 +124,12 @@ class RegNet(ResNet):
         # Generate RegNet parameters first
         if isinstance(arch, str):
             assert arch in self.arch_settings, (
-                f'"arch": "{arch}" is not one of the' " arch_settings"
+                f'"arch": "{arch}" is not one of the arch_settings'
             )
             arch = self.arch_settings[arch]
         elif not isinstance(arch, dict):
             raise ValueError(
-                'Expect "arch" to be either a string ' f"or a dict, got {type(arch)}"
+                f'Expect "arch" to be either a string or a dict, got {type(arch)}'
             )
 
         widths, num_stages = self.generate_regnet(

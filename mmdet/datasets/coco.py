@@ -427,10 +427,10 @@ class CocoDataset(CustomDataset):
                 for saving json files when jsonfile_prefix is not specified.
         """
         assert isinstance(results, list), "results must be a list"
-        assert len(results) == len(
-            self
-        ), "The length of results is not equal to the dataset len: {} != {}".format(
-            len(results), len(self)
+        assert len(results) == len(self), (
+            "The length of results is not equal to the dataset len: {} != {}".format(
+                len(results), len(self)
+            )
         )
 
         if jsonfile_prefix is None:
@@ -597,7 +597,7 @@ class CocoDataset(CustomDataset):
                         else:
                             ap = float("nan")
                         results_per_category.append(
-                            (f'{nm["name"]}', f"{float(ap):0.3f}")
+                            (f"{nm['name']}", f"{float(ap):0.3f}")
                         )
 
                     num_columns = min(6, len(results_per_category) * 2)

@@ -393,7 +393,7 @@ def main():
                                 )
                 else:
                     if eval_types:
-                        print(f'Starting evaluate {" and ".join(eval_types)}')
+                        print(f"Starting evaluate {' and '.join(eval_types)}")
                         if eval_types == ["proposal_fast"]:
                             result_file = args.out
                         else:

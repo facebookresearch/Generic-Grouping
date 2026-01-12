@@ -172,9 +172,7 @@ class BaseDetector(nn.Module, metaclass=ABCMeta):
             return self.simple_test(imgs[0], img_metas[0], **kwargs)
         else:
             assert imgs[0].size(0) == 1, (
-                "aug test does not support "
-                "inference with batch size "
-                f"{imgs[0].size(0)}"
+                f"aug test does not support inference with batch size {imgs[0].size(0)}"
             )
             # TODO: support test augmentation for predefined proposals
             assert "proposals" not in kwargs

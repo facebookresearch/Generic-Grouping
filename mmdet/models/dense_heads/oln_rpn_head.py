@@ -82,9 +82,9 @@ class OlnRPNHead(RPNHead):
         )
         self.rpn_reg = nn.Conv2d(self.feat_channels, self.num_anchors * 4, 1)
 
-        assert (
-            self.num_anchors == 1 and self.cls_out_channels == 1
-        ), "objectness_rpn -- num_anchors and cls_out_channels must be 1."
+        assert self.num_anchors == 1 and self.cls_out_channels == 1, (
+            "objectness_rpn -- num_anchors and cls_out_channels must be 1."
+        )
         self.rpn_obj = nn.Conv2d(self.feat_channels, self.num_anchors, 1)
 
     def init_weights(self):
@@ -174,9 +174,9 @@ class OlnRPNHead(RPNHead):
         # objectness loss
         objectness_targets = objectness_targets.reshape(-1)
         objectness_weights = objectness_weights.reshape(-1)
-        assert (
-            self.cls_out_channels == 1
-        ), "cls_out_channels must be 1 for objectness learning."
+        assert self.cls_out_channels == 1, (
+            "cls_out_channels must be 1 for objectness learning."
+        )
         objectness_score = objectness_score.permute(0, 2, 3, 1).reshape(-1)
 
         loss_objectness = self.loss_objectness(
@@ -420,8 +420,7 @@ class OlnRPNHead(RPNHead):
                 )
             else:
                 raise ValueError(
-                    'objectness_type must be either "Centerness" (Default) or '
-                    '"BoxIoU".'
+                    'objectness_type must be either "Centerness" (Default) or "BoxIoU".'
                 )
 
             objectness_targets[objectness_pos_inds] = pos_objectness_targets

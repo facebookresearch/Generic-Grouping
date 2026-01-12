@@ -28,7 +28,7 @@ __all__ = [
     "PIPELINES",
     "build_dataset",
     "replace_ImageToTensor",
-    "get_loading_pipeline" "CocoSplitDataset",
+    "get_loading_pipelineCocoSplitDataset",
     "CocoSplitPseudoMasksDataset",
     "CocoSplitOnlineDataset",
 ]

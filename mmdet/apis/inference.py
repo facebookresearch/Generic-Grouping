@@ -37,7 +37,7 @@ def init_detector(config, checkpoint=None, device="cuda:0", cfg_options=None):
         config = mmcv.Config.fromfile(config)
     elif not isinstance(config, mmcv.Config):
         raise TypeError(
-            "config must be a filename or Config object, " f"but got {type(config)}"
+            f"config must be a filename or Config object, but got {type(config)}"
         )
     if cfg_options is not None:
         config.merge_from_dict(cfg_options)
@@ -126,9 +126,9 @@ def inference_detector(model, img):
         data = scatter(data, [device])[0]
     else:
         for m in model.modules():
-            assert not isinstance(
-                m, RoIPool
-            ), "CPU inference with RoIPool is not supported currently."
+            assert not isinstance(m, RoIPool), (
+                "CPU inference with RoIPool is not supported currently."
+            )
 
     # forward the model
     with torch.no_grad():
@@ -194,7 +194,7 @@ def show_result_pyplot(
         wait_time (float): Value of waitKey param.
                 Default: 0.
     """
-    warnings.warn('"block" will be deprecated in v2.9.0,' 'Please use "wait_time"')
+    warnings.warn('"block" will be deprecated in v2.9.0,Please use "wait_time"')
     if hasattr(model, "module"):
         model = model.module
     return model.show_result(

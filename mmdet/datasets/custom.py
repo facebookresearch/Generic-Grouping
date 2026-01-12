@@ -307,7 +307,7 @@ class CustomDataset(Dataset):
             assert isinstance(iou_thrs, list)
             mean_aps = []
             for iou_thr in iou_thrs:
-                print_log(f'\n{"-" * 15}iou_thr: {iou_thr}{"-" * 15}')
+                print_log(f"\n{'-' * 15}iou_thr: {iou_thr}{'-' * 15}")
                 mean_ap, _ = eval_map(
                     results,
                     annotations,

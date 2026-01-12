@@ -589,7 +589,7 @@ class CocoSplitDataset(CocoDataset):
                         ap = np.mean(precision)
                     else:
                         ap = float("nan")
-                    results_per_category.append((f'{nm["name"]}', f"{float(ap):0.3f}"))
+                    results_per_category.append((f"{nm['name']}", f"{float(ap):0.3f}"))
 
                 num_columns = min(6, len(results_per_category) * 2)
                 results_flatten = list(itertools.chain(*results_per_category))

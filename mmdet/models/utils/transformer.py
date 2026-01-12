@@ -134,7 +134,7 @@ class FFN(nn.Module):
         add_residual=True,
     ):
         super(FFN, self).__init__()
-        assert num_fcs >= 2, "num_fcs should be no less " f"than 2. got {num_fcs}."
+        assert num_fcs >= 2, f"num_fcs should be no less than 2. got {num_fcs}."
         self.embed_dims = embed_dims
         self.feedforward_channels = feedforward_channels
         self.num_fcs = num_fcs

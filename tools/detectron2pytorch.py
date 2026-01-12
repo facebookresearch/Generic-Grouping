@@ -69,7 +69,7 @@ def convert(src, dst, depth):
                     blobs,
                     state_dict,
                     f"res{i + 1}_{j}_branch2{letter}",
-                    f"layer{i}.{j}.conv{k+1}",
+                    f"layer{i}.{j}.conv{k + 1}",
                     converted_names,
                 )
                 convert_bn(

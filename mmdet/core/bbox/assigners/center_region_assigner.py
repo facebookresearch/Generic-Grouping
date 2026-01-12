@@ -238,9 +238,9 @@ class CenterRegionAssigner(BaseAssigner):
             shadowed_pixel_labels = pixels_in_gt_shadow.clone()
             if pixels_in_gt_shadow.numel() > 0:
                 pixel_idx, gt_idx = pixels_in_gt_shadow[:, 0], pixels_in_gt_shadow[:, 1]
-                assert (
-                    assigned_gt_ids[pixel_idx] != gt_idx
-                ).all(), "Some pixels are dually assigned to ignore and gt!"
+                assert (assigned_gt_ids[pixel_idx] != gt_idx).all(), (
+                    "Some pixels are dually assigned to ignore and gt!"
+                )
                 shadowed_pixel_labels[:, 1] = gt_labels[gt_idx - 1]
                 override = assigned_labels[pixel_idx] == shadowed_pixel_labels[:, 1]
                 if self.foreground_dominate:
