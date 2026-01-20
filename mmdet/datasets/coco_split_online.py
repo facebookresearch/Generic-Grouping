@@ -8,8 +8,6 @@
 import json
 import random
 
-from pycocotools.coco import COCO
-
 from .builder import DATASETS
 from .coco_split import CocoSplitDataset
 

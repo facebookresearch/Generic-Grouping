@@ -15,14 +15,10 @@ Reference:
 
 import itertools
 import logging
-import os.path as osp
-import tempfile
 from collections import OrderedDict
 
-import mmcv
 import numpy as np
 from mmcv.utils import print_log
-from mmdet.core import eval_recalls
 from pycocotools.coco import COCO
 from terminaltables import AsciiTable
 
@@ -30,7 +26,7 @@ from .builder import DATASETS
 from .coco import CocoDataset
 
 # Added for cross-category evaluation
-from .cocoeval_wrappers import COCOEvalWrapper, COCOEvalXclassWrapper
+from .cocoeval_wrappers import COCOEvalXclassWrapper
 
 try:
     import pycocotools
