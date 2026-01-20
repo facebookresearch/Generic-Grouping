@@ -387,7 +387,7 @@ class CocoSplitDataset(CocoDataset):
         gt_labels = []
         gt_bboxes_ignore = []
         gt_masks_ann = []
-        for i, ann in enumerate(ann_info):
+        for ann in ann_info:
             if ann.get("ignore", False):
                 continue
             x1, y1, w, h = ann["bbox"]
