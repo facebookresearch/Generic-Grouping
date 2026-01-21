@@ -101,7 +101,7 @@ class HRModule(nn.Module):
             )
         )
         self.in_channels[branch_index] = num_channels[branch_index] * block.expansion
-        for i in range(1, num_blocks[branch_index]):
+        for _i in range(1, num_blocks[branch_index]):
             layers.append(
                 block(
                     self.in_channels[branch_index],
@@ -453,7 +453,7 @@ class HRNet(nn.Module):
             )
         )
         inplanes = planes * block.expansion
-        for i in range(1, blocks):
+        for _i in range(1, blocks):
             layers.append(
                 block(
                     inplanes,
