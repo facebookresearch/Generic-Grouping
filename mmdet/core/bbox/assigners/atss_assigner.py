@@ -118,7 +118,7 @@ class ATSSAssigner(BaseAssigner):
         # Selecting candidates based on the center distance
         candidate_idxs = []
         start_idx = 0
-        for level, bboxes_per_level in enumerate(num_level_bboxes):
+        for bboxes_per_level in num_level_bboxes:
             # on each pyramid level, for each gt,
             # select k bbox whose center are closest to the gt center
             end_idx = start_idx + bboxes_per_level
