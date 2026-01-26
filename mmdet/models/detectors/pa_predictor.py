@@ -346,7 +346,7 @@ class PairwiseAffinityHeadUperNet(nn.Module):
         self.fpn_in = nn.ModuleList(self.fpn_in)
 
         self.fpn_out = []
-        for i in range(len(fpn_inplanes) - 1):  # skip the top layer
+        for _i in range(len(fpn_inplanes) - 1):  # skip the top layer
             self.fpn_out.append(
                 nn.Sequential(
                     conv3x3_bn_relu(fpn_dim, fpn_dim, 1),
