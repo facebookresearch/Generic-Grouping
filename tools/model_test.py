@@ -9,9 +9,7 @@ import cv2
 import mmcv
 import numpy as np
 import torch
-from mmcv import Config, DictAction
-from mmcv.runner import get_dist_info, init_dist, load_checkpoint, wrap_fp16_model
-from mmdet.core import bbox2roi
+from mmcv import Config
 from mmdet.models import build_detector
 
 cfg_file = "./configs/oln_mask/two_tower_example.py"

@@ -8,12 +8,10 @@
 import numpy as np
 import torch
 import torch.nn.functional as F
-from mmdet.core import bbox2result, bbox2roi, build_assigner, build_sampler
+from mmdet.core import bbox2result, bbox2roi
 
-from ..builder import build_head, build_roi_extractor, HEADS
-from .base_roi_head import BaseRoIHead
+from ..builder import HEADS
 from .standard_roi_head import StandardRoIHead
-from .test_mixins import BBoxTestMixin, MaskTestMixin
 
 
 @HEADS.register_module()

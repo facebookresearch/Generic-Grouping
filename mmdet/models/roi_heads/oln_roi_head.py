@@ -16,7 +16,7 @@ Reference:
 import torch
 from mmdet.core import bbox2roi
 
-from ..builder import build_head, HEADS
+from ..builder import HEADS
 from .standard_roi_head import StandardRoIHead
 
 

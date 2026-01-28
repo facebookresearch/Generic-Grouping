@@ -5,10 +5,6 @@
 # LICENSE file in the root directory of this source tree
 
 
-import json
-import pickle as pkl
-from typing import List, Tuple
-
 import numpy as np
 import torch
 from pycocotools import mask as maskUtils
