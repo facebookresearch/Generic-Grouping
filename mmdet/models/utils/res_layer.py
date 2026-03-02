@@ -37,10 +37,12 @@ class ResLayer(nn.Sequential):
         stride=1,
         avg_down=False,
         conv_cfg=None,
-        norm_cfg=dict(type="BN"),
+        norm_cfg=None,
         downsample_first=True,
         **kwargs,
     ):
+        if norm_cfg is None:
+            norm_cfg = {"type": "BN"}
         self.block = block
 
         downsample = None

@@ -129,11 +129,13 @@ class FFN(nn.Module):
         embed_dims,
         feedforward_channels,
         num_fcs=2,
-        act_cfg=dict(type="ReLU", inplace=True),
+        act_cfg=None,
         dropout=0.0,
         add_residual=True,
     ):
         super(FFN, self).__init__()
+        if act_cfg is None:
+            act_cfg = dict(type="ReLU", inplace=True)
         assert num_fcs >= 2, f"num_fcs should be no less than 2. got {num_fcs}."
         self.embed_dims = embed_dims
         self.feedforward_channels = feedforward_channels
@@ -204,11 +206,15 @@ class TransformerEncoderLayer(nn.Module):
         feedforward_channels,
         dropout=0.0,
         order=("selfattn", "norm", "ffn", "norm"),
-        act_cfg=dict(type="ReLU", inplace=True),
-        norm_cfg=dict(type="LN"),
+        act_cfg=None,
+        norm_cfg=None,
         num_fcs=2,
     ):
         super(TransformerEncoderLayer, self).__init__()
+        if act_cfg is None:
+            act_cfg = dict(type="ReLU", inplace=True)
+        if norm_cfg is None:
+            norm_cfg = dict(type="LN")
         assert isinstance(order, tuple) and len(order) == 4
         assert set(order) == set(["selfattn", "norm", "ffn"])
         self.embed_dims = embed_dims
@@ -306,11 +312,15 @@ class TransformerDecoderLayer(nn.Module):
         feedforward_channels,
         dropout=0.0,
         order=("selfattn", "norm", "multiheadattn", "norm", "ffn", "norm"),
-        act_cfg=dict(type="ReLU", inplace=True),
-        norm_cfg=dict(type="LN"),
+        act_cfg=None,
+        norm_cfg=None,
         num_fcs=2,
     ):
         super(TransformerDecoderLayer, self).__init__()
+        if act_cfg is None:
+            act_cfg = dict(type="ReLU", inplace=True)
+        if norm_cfg is None:
+            norm_cfg = dict(type="LN")
         assert isinstance(order, tuple) and len(order) == 6
         assert set(order) == set(["selfattn", "norm", "multiheadattn", "ffn"])
         self.embed_dims = embed_dims
@@ -442,11 +452,15 @@ class TransformerEncoder(nn.Module):
         feedforward_channels,
         dropout=0.0,
         order=("selfattn", "norm", "ffn", "norm"),
-        act_cfg=dict(type="ReLU", inplace=True),
-        norm_cfg=dict(type="LN"),
+        act_cfg=None,
+        norm_cfg=None,
         num_fcs=2,
     ):
         super(TransformerEncoder, self).__init__()
+        if act_cfg is None:
+            act_cfg = dict(type="ReLU", inplace=True)
+        if norm_cfg is None:
+            norm_cfg = dict(type="LN")
         assert isinstance(order, tuple) and len(order) == 4
         assert set(order) == set(["selfattn", "norm", "ffn"])
         self.num_layers = num_layers
@@ -535,12 +549,16 @@ class TransformerDecoder(nn.Module):
         feedforward_channels,
         dropout=0.0,
         order=("selfattn", "norm", "multiheadattn", "norm", "ffn", "norm"),
-        act_cfg=dict(type="ReLU", inplace=True),
-        norm_cfg=dict(type="LN"),
+        act_cfg=None,
+        norm_cfg=None,
         num_fcs=2,
         return_intermediate=False,
     ):
         super(TransformerDecoder, self).__init__()
+        if act_cfg is None:
+            act_cfg = dict(type="ReLU", inplace=True)
+        if norm_cfg is None:
+            norm_cfg = dict(type="LN")
         assert isinstance(order, tuple) and len(order) == 6
         assert set(order) == set(["selfattn", "norm", "multiheadattn", "ffn"])
         self.num_layers = num_layers
@@ -687,13 +705,17 @@ class Transformer(nn.Module):
         num_decoder_layers=6,
         feedforward_channels=2048,
         dropout=0.0,
-        act_cfg=dict(type="ReLU", inplace=True),
-        norm_cfg=dict(type="LN"),
+        act_cfg=None,
+        norm_cfg=None,
         num_fcs=2,
         pre_norm=False,
         return_intermediate_dec=False,
     ):
         super(Transformer, self).__init__()
+        if act_cfg is None:
+            act_cfg = dict(type="ReLU", inplace=True)
+        if norm_cfg is None:
+            norm_cfg = dict(type="LN")
         self.embed_dims = embed_dims
         self.num_heads = num_heads
         self.num_encoder_layers = num_encoder_layers
