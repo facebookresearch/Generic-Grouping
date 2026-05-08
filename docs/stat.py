@@ -28,9 +28,7 @@ for f in files:
         content = content_file.read()
 
     title = content.split("\n")[0].replace("# ", "").strip()
-    ckpts = set(
-        x.lower().strip() for x in re.findall(r"\[model\]\((https?.*)\)", content)
-    )
+    ckpts = {x.lower().strip() for x in re.findall(r"\[model\]\((https?.*)\)", content)}
 
     if len(ckpts) == 0:
         continue
