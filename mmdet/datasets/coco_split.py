@@ -350,7 +350,7 @@ class CocoSplitDataset(CocoDataset):
         """Filter images too small or without ground truths."""
         valid_inds = []
         # obtain images that contain annotation
-        ids_with_ann = set(_["image_id"] for _ in self.coco.anns.values())
+        ids_with_ann = {_["image_id"] for _ in self.coco.anns.values()}
         # obtain images that contain annotations of the required categories
         ids_in_cat = set()
 
