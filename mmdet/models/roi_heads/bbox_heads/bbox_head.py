@@ -28,18 +28,24 @@ class BBoxHead(nn.Module):
         roi_feat_size=7,
         in_channels=256,
         num_classes=80,
-        bbox_coder=dict(
-            type="DeltaXYWHBBoxCoder",
-            clip_border=True,
-            target_means=[0.0, 0.0, 0.0, 0.0],
-            target_stds=[0.1, 0.1, 0.2, 0.2],
-        ),
+        bbox_coder=None,
         reg_class_agnostic=False,
         reg_decoded_bbox=False,
-        loss_cls=dict(type="CrossEntropyLoss", use_sigmoid=False, loss_weight=1.0),
-        loss_bbox=dict(type="SmoothL1Loss", beta=1.0, loss_weight=1.0),
+        loss_cls=None,
+        loss_bbox=None,
     ):
         super(BBoxHead, self).__init__()
+        if bbox_coder is None:
+            bbox_coder = dict(
+                type="DeltaXYWHBBoxCoder",
+                clip_border=True,
+                target_means=[0.0, 0.0, 0.0, 0.0],
+                target_stds=[0.1, 0.1, 0.2, 0.2],
+            )
+        if loss_cls is None:
+            loss_cls = dict(type="CrossEntropyLoss", use_sigmoid=False, loss_weight=1.0)
+        if loss_bbox is None:
+            loss_bbox = dict(type="SmoothL1Loss", beta=1.0, loss_weight=1.0)
         assert with_cls or with_reg
         self.with_avg_pool = with_avg_pool
         self.with_cls = with_cls

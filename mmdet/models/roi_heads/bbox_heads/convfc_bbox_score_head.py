@@ -42,9 +42,11 @@ class ConvFCBBoxScoreHead(ConvFCBBoxHead):
         self,
         with_bbox_score=True,
         bbox_score_type="BoxIoU",
-        loss_bbox_score=dict(type="L1Loss", loss_weight=1.0),
+        loss_bbox_score=None,
         **kwargs,
     ):
+        if loss_bbox_score is None:
+            loss_bbox_score = dict(type="L1Loss", loss_weight=1.0)
         super(ConvFCBBoxScoreHead, self).__init__(**kwargs)
         self.with_bbox_score = with_bbox_score
         if self.with_bbox_score:
