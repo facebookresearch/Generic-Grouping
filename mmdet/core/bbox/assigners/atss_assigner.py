@@ -48,10 +48,10 @@ class ATSSAssigner(BaseAssigner):
         3. on each pyramid level, for each gt, select k bbox whose center
            are closest to the gt center, so we total select k*l bbox as
            candidates for each gt
-        4. get corresponding iou for the these candidates, and compute the
+        4. get corresponding iou for these candidates, and compute the
            mean and std, set mean + std as the iou threshold
         5. select these candidates whose iou are greater than or equal to
-           the threshold as postive
+           the threshold as positive
         6. limit the positive sample's center in gt
 
 
@@ -131,7 +131,7 @@ class ATSSAssigner(BaseAssigner):
             start_idx = end_idx
         candidate_idxs = torch.cat(candidate_idxs, dim=0)
 
-        # get corresponding iou for the these candidates, and compute the
+        # get corresponding iou for these candidates, and compute the
         # mean and std, set mean + std as the iou threshold
         candidate_overlaps = overlaps[candidate_idxs, torch.arange(num_gt)]
         overlaps_mean_per_gt = candidate_overlaps.mean(0)
