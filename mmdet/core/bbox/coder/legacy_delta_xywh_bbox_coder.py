@@ -21,7 +21,7 @@ class LegacyDeltaXYWHBBoxCoder(BaseBBoxCoder):
     back to original bbox (x1, y1, x2, y2).
 
     Note:
-        The main difference between :class`LegacyDeltaXYWHBBoxCoder` and
+        The main difference between :class:`LegacyDeltaXYWHBBoxCoder` and
         :class:`DeltaXYWHBBoxCoder` is whether ``+ 1`` is used during width and
         height calculation. We suggest to only use this coder when testing with
         MMDet V1.x models.
